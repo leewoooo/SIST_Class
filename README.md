@@ -3,4 +3,4 @@
 
 - Jangilku의 github사용을 보고 영감을 받아 시작하게 되었습니다.
 
-- GOOD LUCK BRO:)
+- GOOD LUCK :)

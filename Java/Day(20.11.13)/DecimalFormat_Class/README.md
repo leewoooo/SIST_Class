@@ -2,7 +2,7 @@
 
 DecimalFormat Class
 ===
-* DecimalFormat Class 예제코드 [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.14)/DecimalFormat_Class/UseDecimalFormat.java)
+* DecimalFormat Class 예제코드 [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.13)/DecimalFormat_Class/UseDecimalFormat.java)
 
 * 숫자를 원하는 format을 사용하여 문자열로 반환합니다. (가독성 향상 효과)
 

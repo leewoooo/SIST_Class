@@ -1,7 +1,7 @@
 
 Random Class
 ====
- - Random Class 예제코드 [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.14)/RandomClass/UseRandom.java)
+ - Random Class 예제코드 [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.13)/RandomClass/UseRandom.java)
  - `난수를 생성하기 위해` 만들어진 Class
  - `java util package`에 속해있다.
  - 다음수가 예측이 가능하다는 단점을 가지고 있다. Random(long seed)를 사용해 보안가능

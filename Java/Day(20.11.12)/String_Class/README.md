@@ -2,7 +2,7 @@
 ==
 ## 문자열을 다루는 class
 ---
-
+* String Class 예제코드[code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.12)/String_Class/UseStringBuilder.java)
 ### java.lang.String 
 
 * String의 주소를 저장 할 class(string = 문자열 저장소) 

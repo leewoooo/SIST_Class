@@ -1,6 +1,6 @@
 StringTokenizer
 ===
-
+* StringTokenizer Class 예제코드 [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.12)/Stringtokenizer_Class/UseStringTokenizer.java)
 * `문자열을 Token 단위로 잘라서 문자열 하나하나씩 얻어 낼 수 있다`.
 * `Pointer의 개념을 이용`하며 지정한 문자열을 기준으로 잘라낼 수 있다.<br>
   (기본은 space를 기준으로 잘라낸다.)

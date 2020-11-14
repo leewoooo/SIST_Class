@@ -1,6 +1,7 @@
-java util
+Date Class
 ===
 * Date Class 예제코드[code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.14)/Date_Class/UseDate.java)
+
 ## 날짜 관련 class
 
 ### 1.Date

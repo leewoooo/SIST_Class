@@ -1,6 +1,6 @@
 Math class
 ===
-* Math Class 예제코드[code] (https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.12)/Math_Class/UseMathClass.java)
+* Math Class 예제코드[code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.12)/Math_Class/UseMathClass.java)
 * Math class는 java lang package에 존재하기에 사용하려면 import 받아 사용.
 
 

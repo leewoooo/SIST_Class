@@ -1,7 +1,7 @@
 
 calendar
 ===
-* Calendar 예제코드 [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.14)/Calendar/UseCalendar.java)
+* Calendar 예제코드 [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.13)/Calendar_Class/UseCalendar.java)
 * `단편적인 날자 정보를 얻을 때` 사용한다.
 * `Instance가 되지 않습니다.`
 * 날짜 정보를 얻기 위해 Constant를 사용합니다.

@@ -55,8 +55,7 @@ cal.get(calendar.DAY_OF_WEEK)에서 반환된 값을 가지고 요일의 이름�
 
 * set() 사용
 * cal.set(field , value)
-    >field는 변경하고자 하는 값이 의미하는 Constant
-    <br>
+    >field는 변경하고자 하는 값이 의미하는 Constant<br>
     >value는 변경하고자 하는 값
 
 * code

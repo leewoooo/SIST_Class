@@ -20,7 +20,7 @@ Super
 
     * 예제 code
 
-        * 부모 class
+        * 부모 class [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.10)/super/TestSuper.java)
             ```java
             class Test{
 
@@ -32,7 +32,7 @@ Super
                 }//usevari
             }//Test
             ```
-        * 자식 class
+        * 자식 class [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.10)/super/TestSub.java)
             ```java
             class TestSub extends Test{
 

@@ -1,0 +1,14 @@
+
+/**
+ * OverrideSuper의 자식 class<br>
+ * 자식class에서는 부모class를 알 수 있다.
+ * 자식class가 객체화 되면, 부모class가 먼저 생성되고 난 후
+ * 자식class가 생성된다. (자식class를 instance화 하면 부모 생성자 먼저 호출하고 자식 생성자 호출)
+ * 그렇기 때문에 부모의 모든 기능을 사용 할 수 있다. (public protected)
+ * @author owner
+ */
+public class OverrideSub extends OverrideSuper {
+
+
+
+}//class

@@ -1,0 +1,29 @@
+
+/**
+ * 상속을 위해서 만드는 class
+ * 자식 class가 반드시 구현해야 할 일의 목록을 abstract method (상속의 강제)로 정의할 수 있다.
+ * @author owner
+ */
+
+public abstract class AbstractSuper {
+
+	/**
+	 * 추상class의 생성자.
+	 */
+	public AbstractSuper() {
+		System.out.println("추상클래스의 생성자");
+	}//AbstractSuper
+
+	//자식 class가 호출하여 사용할 수 있는 method
+	public void methodA()   //method의 head
+	{
+		System.out.println("일반 metghod");	//method의 body
+	}//일반 methodA
+
+
+	//abstract method는 구현의 강제성이 있습니다.(자식class에서 반드시 Override해야한다.)
+	//method의 body가 없는 abstract method입니다. :body가 없어서 일을 할 수 없다.
+	public abstract void methodB();
+	public abstract int methodC();
+  
+}//class

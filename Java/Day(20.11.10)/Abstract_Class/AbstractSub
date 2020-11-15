@@ -1,0 +1,35 @@
+
+
+/**
+ * AbstractSuper의 자식 class (추상class의 자식 class)
+ * 부모class의 모든 abstract method를 반드시 Override 해야한다.
+ * @author owner
+ */
+public class AbstractSub extends AbstractSuper{
+
+	public AbstractSub() {
+		System.out.println("자식class");
+	}//AbstractSub
+
+	@Override
+	public void methodB() {
+//		super.methodB(); //abstract method는 직접 호출이 불가능 합니다.
+		System.out.println("Override 한 method B");
+	}//B
+
+	@Override
+	public int methodC() {
+		System.out.println("Override 한 method C");
+		return 11;
+	}//C
+
+
+	public static void main(String[] args) {
+
+		AbstractSub as = new AbstractSub(); //자식 class를 Instance화 하면 부모 class의 생성자가 먼저 호출되어 부모class생성.
+		as.methodA(); //부모가 가진 일반 method
+		as.methodB(); //부모의 abstract method 를 Override한 method
+		System.out.println(as.methodC()); //부모의 abstract method 를 Override한 method
+    
+	}//main
+}//class

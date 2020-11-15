@@ -26,7 +26,7 @@ Over ride (Over riding)
 * 자식 class를 가지고 Instance를 만들어 Override 한 method를 호출시<br>
 `부모의 class의 method가 아닌 Override method가 호출된다.` (override를 최우선 호출)
 
-    * 부모 class
+    * 부모 class [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.10)/OverRide/code(super))
 
         ```java
         /**
@@ -45,7 +45,7 @@ Over ride (Over riding)
 
         }//class
         ```
-    * 자식 class
+    * 자식 class [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.10)/OverRide/code(sub2))
 
         ```java
         /**

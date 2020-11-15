@@ -1,6 +1,8 @@
 Annotation
 ===
 
+* Annotation 예제코드 [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.10)/Annotation/UseAnnotation.java)
+
 * Annotation을 사용하여 유효성 검사를 쉽게 알 수 있다.
 
 * JDK 1.5 (javase 5) 에서 추가된 기능

@@ -2,7 +2,7 @@ Interface
 ===
 
 * 추상class 보다 추상화의 단계가 높다, 상수와 abstract method만 가진다.<br>
-(`일반 method 또는 member변수를 가질 수 없다.`)
+**일반 method 또는 member변수를 가질 수 없다.**
 
 * JDK 1.7부터 Interface에 업무를 구현할 수 있는 default method를 추가할 수 있다.
     * default method

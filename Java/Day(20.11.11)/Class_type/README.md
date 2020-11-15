@@ -9,6 +9,7 @@
     - anonymous innerclass
 
 ## inner class
+* inner class [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.11)/Class_type/UseInner.java)
 > 안긴 클래스: 클래스에 클래스를 정의
 - 이벤트 처리용으로 개발
 - 이벤트를 객체마다 따로 처리해야 할 때
@@ -40,6 +41,7 @@
 ``` 
 
 ## nested class
+- nested class [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.11)/Class_type/UseNestedOuter.java)
 - 내부 클래스를 static 변수처럼 사용
 - 객체화 없이 사용하는 것을 권장
 
@@ -49,6 +51,7 @@
 ```
 
 ## local class
+- local class [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.11)/Class_type/UseLocerOuter.java)
 > 클래스를 지역변수처럼 사용
 - method안에서만 사용되는 클래스
 
@@ -60,6 +63,7 @@
 - class파일명 $ 1뒤에는 method명이 온다.
 
 ## anonymous inner class
+- anonymous inner class [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.11)/Class_type/UseAnonymous.java)
 > class를 Arguments로 사용 할 때
 - Arguments=> method parameter에 전달 하는 값
 - method의 매개변수로 class나 interface가 사용 되었을 때 주로 사용

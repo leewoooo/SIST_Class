@@ -36,7 +36,7 @@ Interface
 * 상속을 받아 자식 class에서 `abstract method를 필수적으로 구현해야 한다.`<br>
  구현하는 class를 생성할 때는 extends 가 아닌 `Implements를 사용하여 class를 생성한다.`
 
-* Interface 구조
+* Interface 구조 (예제코드 [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.11)/Interface/TestSuper.java))
     ```java
     접근지정자 Interface 인터페이스명 {
         public static final 타입 상수이름 = 값; //상수만 가질 수 있다.
@@ -62,7 +62,7 @@ Interface
     }//class
     ```
 
-* Interface를 구현하는 class의 구조
+* Interface를 구현하는 class의 구조 (예제코드 [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.11)/Interface/TestImpl.java)) 
     ```java
     public class TestImpl implements TestSuper {
 	

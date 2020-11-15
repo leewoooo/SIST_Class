@@ -1,5 +1,7 @@
 Abstract class
 ===
+* Abstract class 예제코드 [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.10)/Abstract_Class/AbstractSuper)
+* 자식 class 예제코드 [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.10)/Abstract_Class/AbstractSub)
 
 * 상속을 강제하는 class이다. (추상 클래스란 구체적이지 않은 클래스를 의미한다.)
 * Instance화가 되지 않는 class 이다.(abstract method는 직접 호출이 불가능)<br>

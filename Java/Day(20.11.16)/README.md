@@ -20,7 +20,7 @@ JCF (Java Collection Framework)
 <br>
 
 
-- Generic 사용예제
+- Generic 사용예제 [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.16)/UnusedGeneric.java)
 
     * Generic을 사용하지 않았을 때 (\<E> 를사용 X) => 모든 객체를 저장 가능 (warning)
         ```java

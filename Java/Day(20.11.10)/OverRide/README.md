@@ -1,4 +1,4 @@
-Override (Over riding)
+Override (Overriding)
 ===
 
 * OOP 언어의 특성중 다형성에 속한다 (method의 다형성)

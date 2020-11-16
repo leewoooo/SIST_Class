@@ -32,3 +32,35 @@ Work내용
     =======
 
 #### 과제 완료 [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/HomeWork/day1113/Work1113.java)
+
+### 2020.11.16 code 수정
+
+* 기존 코드
+
+    ```java
+    //2. 신대방역 뒤에 "구로디지털 단지"를 추가 하기 위해 삽입할 위치의 index를 구한다.
+		@SuppressWarnings("unused")
+		int index = station.indexOf("방");
+		System.out.println(index);
+		
+		//3. "구로디지털 단지"의 공백을 제거후 정거장 문자열에 삽입한다.
+		sb.insert(10, "구로디지털 단지,".replace(" ", ""));
+		System.out.println(sb);
+    ```
+
+
+
+* 수정 코드
+    ```java
+    //2. 신대방역 뒤에 "구로디지털 단지"를 추가 하기 위해 삽입할 위치의 index를 구한다.
+		int index = (station.indexOf("신대방"))+3;
+		//수정(11.16) index를 찾을때 "방"으로 찾았었는데 신대방 역이 나오기전 방이 들어간 역 이름이 나오면
+		//원하고자 하는 출력형식을 얻을 수 없기에 더 명확히 지정
+		System.out.println(index);
+		
+		//3. "구로디지털 단지"의 공백을 제거후 정거장 문자열에 삽입한다.
+		sb.insert(index, "구로디지털 단지,".replace(" ", "")); 
+		//수정 (11.16)구한 index를 값으로 지정하는 것이 아닌 변수로 지정하여 동적인 코드로 변경.
+		System.out.println(sb);
+        ```
+        

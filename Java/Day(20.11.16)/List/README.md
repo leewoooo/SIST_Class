@@ -1,6 +1,8 @@
 List
 ===
 
+* List 예제코드 [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.16)/List/UseList.java)
+
 * 일차원 배열의 구조를 가지고있다.
     >-일차원 배열은 고정 길이의 특징을 가지고있다. <br>
      -**List는 가변 길이의 특징을 가지고있다.(발생하는 data의 갯수를 몰라도 된다.)**

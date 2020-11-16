@@ -1,5 +1,7 @@
 Set
 ===
+* set 예제코드[code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.16)/Set/UseSet.java)
+
 * 일차원 배열의 구조를 가진다.
 
 * **중복 Data를 허용하지 않으며 검색의 기능을 지원하지 않음(LIST와 대비)**

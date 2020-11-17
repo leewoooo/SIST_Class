@@ -5,7 +5,7 @@ Map
 
 * Map 예제코드 [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/Day(20.11.17)/Map/UseMap.java)
 
-* 이차원 배열의 구조를 가진다.
+* 이차원 배열의 구조를 가진다.(key와 value를 열로 가진다.)
 
 * 가변 길이형의 특징을 갖지만 열의 길이는 2열로 고정이고 행의 길이가 가변적이다.
     > **`열은 항상 key , value 를 갖습니다.`**

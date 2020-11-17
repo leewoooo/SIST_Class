@@ -22,10 +22,18 @@ AWT
     * panel , ScrollPane를 주로 사용한다.
 3. Component
     * 기능을 가지는 최소한의 단위들
-    * Button(클릭하여 일), Label(이름표), TextField(한줄의 입력을 받을 때), TextArea(여러 줄의 입력을 받을 때), 
-    List(여러개의 item을 사용할 때), ButtonGroup(버튼을 묶을때 사용), CheckBox(여러개의 항목을 선택 할 때),
-    CheckBoxGroup(CheckBox를 묶어서 하나만 선택되도록 만들 때 , 동시선택X) ,Choic(여러개의 item중 하나만 선택하게 할때, ex-회원가입창 핸드폰번호 앞자리 선택)
     
+    | Component | 기능 |
+    | :---: | :---|
+    | Button |클릭하여 일을 한다 |
+    | Label |이름표 역할|
+    | TextField| 한줄의 입력을 받을 때 |
+    | TextArea | 여러줄의 입력을 받을 때 |
+    | List | 여러개의 item을 사용할 때 |
+    | ButtonGroup | 버튼을 묶을 때 사용 |
+    | CheckBox | 여러개의 항목을 선택 할 때 |
+    | CheckBoxGroup | CheckBOX를 묶어서 하나만 선택되도록 할 때 (동시선택 X)|
+    | choice | 여러개의 item중 하나만 선택하게 할 때 (회원가입창 핸드폰 번호 앞자리 선택|
 ---
 
 ### 코딩 순서

@@ -183,5 +183,83 @@ List
     >-get method의 반환형은 Integer이지만 unboxing이 동작하여 int에 저장된다.<Br><br>
     >-Wrapper Class가 Generic으로 설정되어 있을 때 기본형 Datatype으로 값을 얻으면 <br>JVM이 Wrapper Class에서 기본형으로 값을 얻어낸다.
 
+---
+## 2020- 11 - 17 추가 내용
 
 
+### LinkedLIst
+
+* 가변 길이형 (Data를 추가하면 방의 길이가 늘어나고 지우면 줄어든다.)
+
+* 중복 Data를 저장할 수 있으며 검색이 가능하다.
+
+* **`발생된 DATA를 기존DATA사이에 추가 할때 사용합니다.`**
+
+    * ArrayList 나 Vector는 add(int index,E element) method를 사용하면 <br>
+    Data를 넣을 Index를 기준으로 분리하여 Data를 넣고 다시 합치는 연산을 한다.
+        >-즉 많은 연산과정으로 인해 Data를 넣을때 효율이 떨어진다.(속도 감소) <br>
+        -이것을 보안하고자 LinkedList를 사용
+
+* 값들마다 시작주소와 끝주소를 가지고 있다.
+
+    ```java
+    LinkedList<String> ll = new LinkedList<String>();
+    ll.add("A");
+    //A는 시작주소와 끝주소를 갖게 되며 시작주소는 ll의 주소 , 끝주소는 다음 Data의 시작주소를 얻는다.
+    ll.add("B");
+    //B는 A의 끝 주소를 시작주소로 가지고, 끝 주소는 다음 Data의 시작 주소를 갖는다.
+    //다음 Data가 없을 시 null 값을 갖는다.
+    ```
+
+* 사용방법은 ArrayList와 동일하다. (DATA구조만 다를뿐이다.)
+    >-ArrayList = **`데이터를 순차적으로 Data를 추가할 때 사용한다.`** <br>
+    -LinkedList = **`발생한 데이터가 기존DATA사이에 추가가 빈번하게 일어날 때 사용한다.`**
+
+---
+
+### STACK
+
+* LIFO (Last Input First Output)의 특징을 가지고 있다.
+
+* Vector의 자식 class이므로 Multi Thread지원을 하지 않는다. (동기화되어있다.)
+    >-하지만 부모class (Vector)의 method를 사용하지 않는다. LIFO의 기능에 위배되기 때문에
+
+* IS-A Instance화를 하지 않는다. (Queue의 특성을 가지고 있기에)
+    > 이것 또한 LIFO의 기능을 위배되기 때문에.
+
+* 사용방법 CODE
+
+    
+    ```java
+    //생성
+    Stack<E> stack = new Stack<E>();
+
+    ex)
+    Stack<String> sta = new Stack<String>();
+
+    //값 추가 (Stack에서는 값을 item이라고 한다.)
+    sta.push("Good");
+    sta.push("Luck");
+
+    /* 
+    자료 구조는 먼저 입력된것이(Good)가 먼저 heap에 올라가고 
+    Good 위에 두번째 입력된(Luck)가 쌓인다 (계층구조)
+    */
+    
+    //Stack이 비어있는지 확인 : boolean형 반환
+    sta.empty(); //item이 있을시 = false, item이 없을시 = true
+    
+    //값 얻기 (stack에서 item을 꺼내오면 사라진다.)
+    sta.pop()
+    /*
+    Generic으로 설정된 Stack의 가장 위에 적재되어 있는 값이 반환
+    조건은 empty() method에서 참 값이 나올 때 사용
+    */
+
+    //모든 방의 값 얻기
+    while(!sta.empty()){ 
+        sta.pop();
+    }//end while
+    ```
+
+---

@@ -52,6 +52,8 @@ Work내용
 
 ### 2번과제
 
+* 과제완료 [code](https://github.com/LeeWoooo/SIST_Class/blob/master/Java/HomeWork/day1117/HomeWork1117_2.java)
+
 1. 아래와 같은 데이터를 List에 추가하여 반환하는 method 를 작성하세요.<br>
  "Java-James Gosling:1995"<br>
  "Oracle-Larry Ellison"<br>

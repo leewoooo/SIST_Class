@@ -5,73 +5,73 @@ import java.util.List;
 import java.util.Vector;
 
 /**
- * - ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ßºï¿½ Dataï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ Listï¿½ï¿½ ï¿½ï¿½ï¿½
- * - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È´ï¿½.
+ * - °Ë»öÀÇ ±â´ÉÀÌ ÀÖÀ¸¸ç Áßº¹ Data¸¦ ÀúÀåÇÒ ¼ö ÀÖ´Â ListÀÇ »ç¿ë
+ * - °¡º¯ ±æÀÌÇü : µ¥ÀÌÅÍÀÇ Ãß°¡, »èÁ¦ ÀÛ¾÷¿¡ µû¶ó ¹æÀÇ °¹¼ö°¡ º¯°æµÈ´Ù.
  * @author owner
  */
 public class UseList {
 
 	/**
-	 * Multi Threadï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½Õ´Ï´ï¿½. (ï¿½ï¿½ï¿½È¼ï¿½ï¿½ï¿½ ï¿½ä±¸ ï¿½Ò¶ï¿½ ï¿½ï¿½ï¿½)
-	 * ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ç¾ï¿½ ï¿½Ö´ï¿½, ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (Arraylistï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+	 * Multi Thread¿¡¼­ µ¿½Ã Á¢±ÙÀÌ ºÒ°¡´É ÇÕ´Ï´Ù. (º¸¾È¼ºÀ» ¿ä±¸ ÇÒ¶§ »ç¿ë)
+	 * µ¿±âÈ­°¡ µÇ¾î ÀÖ´Ù, ¼Óµµ°¡ ´À¸®´Ù (Arraylist¿¡ ºñÇØ)
 	 */
 	public void useVector(){
 		
-		//1. ï¿½ï¿½ï¿½ï¿½ : Genericï¿½ï¿½ ï¿½âº»ï¿½ï¿½ DatTypeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ , ï¿½âº»ï¿½ï¿½ ï¿½ï¿½ï¿½ Wrapper Classï¿½ï¿½ ï¿½ï¿½ï¿½
+		//1. »ý¼º : GenericÀº ±âº»Çü DatTypeÀ» »ç¿ëÇÒ ¼ö ¾ø´Ù , ±âº»Çü ´ë½Å Wrapper Class¸¦ »ç¿ë
 		Vector<Integer> vec = new Vector<Integer>(3); 
-		//ï¿½âº» ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½, sizeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å©ï¿½â°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½, Dataï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Å©ï¿½â°¡ ï¿½Ã¾î³­ï¿½ï¿½.
+		//±âº» ¹æÀÇ Å©±â, size·Î ¹æÀÇ Å©±â°¡ ³ª¿ÀÁö ¾Ê´Â´Ù, Data°¡ Ãß°¡µÇ¸é ¹æÀÇ Å©±â°¡ ´Ã¾î³­´Ù.
 
 		List<String> list = new Vector<String>();
 		
-		System.out.println( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ " + vec.size());
-		System.out.println("ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Å©ï¿½ï¿½ " + vec.size());
+		System.out.println( "¹éÅÍÀÇ Å©±â " + vec.size());
+		System.out.println("¸®½ºÆ®ÀÇ Å©±â " + vec.size());
 		
-		//2.ï¿½ï¿½ ï¿½ß°ï¿½ : Genericï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Datatypeï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
+		//2.°ª Ãß°¡ : GenericÀ¸·Î ¼³Á¤µÈ Datatype¸¸ Ãß°¡ °¡´É
 		vec.add(10); // => vec.add(Integer(10));
-		//ï¿½âº»ï¿½ï¿½ Datatypeï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ï¸ï¿½ JVMï¿½ï¿½  ï¿½âº»ï¿½ï¿½ Datatypeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ 
-		//Wrapper Classï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö°ï¿½ ï¿½ß°ï¿½ï¿½Ñ´ï¿½. 
-		// JDK 1.5ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ autoboxing ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½Ñ´ï¿½.
+		//±âº»Çü DatatypeÀ» Ãß°¡ÇÏ¸é JVMÀÌ  ±âº»Çü Datatype¿¡ ´ëÀÀµÇ´Â 
+		//Wrapper Class¸¦ »ç¿ëÇÏ¿© °´Ã¼¸¦ ¸¸µé¾îÁÖ°í Ãß°¡ÇÑ´Ù. 
+		// JDK 1.5ºÎÅÍ Ãß°¡µÈ autoboxing ±â´ÉÀÌ¶ó°í ÇÑ´Ù.
 		
 		vec.add(20);
-		System.out.println( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ " + vec.size());
+		System.out.println( "¹éÅÍÀÇ Å©±â " + vec.size());
 		vec.add(30);
-		vec.add(10); //ï¿½ßºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
-		//capacityï¿½ï¿½ Å©ï¿½â¸¦ ï¿½Ê°ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ß°ï¿½ï¿½È´ï¿½.
-		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å©ï¿½â¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½îµµ Dataï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½.
-		System.out.println( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ " + vec.size());
-		System.out.println(vec); //Object.toString()ï¿½ï¿½ Vectorï¿½ï¿½ Overrideï¿½Ï¿ï¿½ ï¿½Ö¼Ò°ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+		vec.add(10); //Áßº¹°ª Çã¿ë
+		//capacityÀÇ Å©±â¸¦ ÃÊ°úÇÏ´õ¶óµµ ¹æÀÌ Áõ°¡ÇÏ¿© Ãß°¡µÈ´Ù.
+		//»ý¼ºÇÒ ¶§ ¹æÀÇ Å©±â¸¦ ÁöÁ¤ÇØÁÖ¾ú¾îµµ Data°¡ Ãß°¡ µÇ¸é °è¼ÓÇØ¼­ ¹æÀÌ Áõ°¡µÈ´Ù.
+		System.out.println( "¹éÅÍÀÇ Å©±â " + vec.size());
+		System.out.println(vec); //Object.toString()¸¦ Vector°¡ OverrideÇÏ¿© ÁÖ¼Ò°¡ ¾Æ´Ñ °ªÀÌ Ãâ·Â
 		
-		list.add("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
-		list.add("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
-		list.add("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
-		list.add("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
-		list.add("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"); 
-		System.out.println("listï¿½ï¿½ Å©ï¿½ï¿½ " + list.size() + " / " + list);
+		list.add("ÇÔÇý¸²");
+		list.add("ÃÖÇý¿ø");
+		list.add("ÃÖÀºÇý");
+		list.add("Á¤¿¹Áø");
+		list.add("Á¤¼ÒÀ±"); 
+		System.out.println("listÀÇ Å©±â " + list.size() + " / " + list);
 		
-		//ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-		//Genericï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Listï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ warningï¿½ï¿½ ï¿½ß»ï¿½
-		//ï¿½è¿­ï¿½ï¿½ Listï¿½ï¿½ Å©ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
-//		int[]arr = new int[vec.size()];  intï¿½ï¿½ Integerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Datatypeï¿½ï¿½ ï¿½Æ´Ï´ï¿½.
+		//¹è¿­·Î º¹»ç
+		//GenericÀÌ ¼³Á¤µÇÁö ¾ÊÀº ListÀÇ º¹»ç´Â warningÀÌ ¹ß»ý
+		//¹è¿­À» ListÀÇ Å©±â·Î ¼±¾ðÇÕ´Ï´Ù.
+//		int[]arr = new int[vec.size()];  int¿Í IntegerÀº µ¿ÀÏ DatatypeÀÌ ¾Æ´Ï´Ù.
 		Integer[]arr = new Integer[vec.size()];  
 		String[]arr1 = new String[list.size()];
 		
-		//ï¿½ï¿½ï¿½ï¿½ 
+		//º¹»ç 
 		list.toArray(arr1);
 		vec.toArray(arr);
 		
-		//3. ï¿½ï¿½ï¿½ï¿½ï¿½ : unboxing ï¿½ß»ï¿½
-		String name = list.get(0); //ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ unboxingï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
+		//3. °ª¾ò±â : unboxing ¹ß»ý
+		String name = list.get(0); //ÀÔ·Â µ¥ÀÌÅÍ Çü°ú ÀúÀåÇÏ´Â µ¥ÀÌÅÍ ÇüÀÌ °°´Ù¸é unboxingÀÌ µ¿ÀÛÇÏÁö ¾Ê´Â´Ù.
 		System.out.println(name);
 		
 		int num = vec.get(0); 
-		//get methodï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½ Integerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ unboxingï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ intï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È´ï¿½.
-		//Wrapper Classï¿½ï¿½ Genericï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½âº»ï¿½ï¿½ Datatypeï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ JVMï¿½ï¿½ Wrapper Classï¿½ï¿½ï¿½ï¿½ ï¿½âº»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î³»ï¿½ï¿½  Unboxingï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+		//get methodÀÇ ¹ÝÈ¯ÇüÀº IntegerÀÌÁö¸¸ unboxingÀÌ µ¿ÀÛÇÏ¿© int¿¡ ÀúÀåµÈ´Ù.
+		//Wrapper Class°¡ GenericÀ¸·Î ¼³Á¤µÇ¾î ÀÖÀ» ¶§ ±âº»Çü DatatypeÀ¸·Î °ªÀ» ¾òÀ¸¸é JVMÀÌ Wrapper Class¿¡¼­ ±âº»ÇüÀ¸·Î °ªÀ» ¾ò¾î³»´Â  UnboxingÀ» ¼öÇà.
 		//int num=vec.get(0).intValue();
 		
 		
 		System.out.println(name + " / " + num);
 		
-		//4.ï¿½Ï°ï¿½Ã³ï¿½ï¿½
+		//4.ÀÏ°ýÃ³¸®
 		for(int i = 0 ; i < vec.size() ; i ++) {
 			System.out.println(vec.get(i));
 		}//end for
@@ -81,33 +81,33 @@ public class UseList {
 		}//end for
 		
 		
-		//5.ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		//5.°ª »èÁ¦
 		
-		//indexï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+		//indexÀ¸·Î Áö¿ì±â
 		
-		vec.remove(1); //1ï¿½ï¿½ Indexï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-		list.remove(3); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		vec.remove(1); //1À» Index·Î °¡Áö°í ÀÖ´Â ¹æÀÇ °ª »èÁ¦
+		list.remove(3); // Á¤¿¹Áø »èÁ¦
 		System.out.println(vec);
 		System.out.println(list);
-		//Objectï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
-//		vec.remove(new Integer(30));// 30ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ JDK 1.8 ï¿½ï¿½ï¿½ï¿½
-		vec.remove(Integer.valueOf(30));// 30ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ // JDK9ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ Static methodï¿½ï¿½ï¿½
-		list.remove("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		//ObjectÀ¸·Î Áö¿ì±â
+//		vec.remove(new Integer(30));// 30ÀÌ »èÁ¦ JDK 1.8 ±îÁö
+		vec.remove(Integer.valueOf(30));// 30ÀÌ »èÁ¦ // JDK9ÀÌÈÄ¿¡´Â »ý¼ºÀÚ°¡ ºñÃßÃµÀ¸·Î º¯°æµÇ¾î Static method»ç¿ë
+		list.remove("ÇÔÇý¸²");//ÇÔÇý¸² »èÁ¦
 		System.out.println(vec);
 		System.out.println(list);
 		
-		System.out.println("vecï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â°ï¿½?" + vec.isEmpty());
-		System.out.println("listï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â°ï¿½?" + list.isEmpty());
+		System.out.println("vec°¡ ºñ¾ú´Â°¡?" + vec.isEmpty());
+		System.out.println("list°¡ ºñ¾ú´Â°¡?" + list.isEmpty());
 		
-		//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		//¸ðµç ¹æÀÇ °ªÀ» »èÁ¦
 		vec.clear();
 		list.clear();
-		System.out.println("vecï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â°ï¿½?" + vec.isEmpty());
-		System.out.println("listï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â°ï¿½?" + list.isEmpty());
+		System.out.println("vec°¡ ºñ¾ú´Â°¡?" + vec.isEmpty());
+		System.out.println("list°¡ ºñ¾ú´Â°¡?" + list.isEmpty());
 		
-//		System.out.println(list.size() == 0); //isemptyï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.
+//		System.out.println(list.size() == 0); //isempty¿Í °°Àº ±â´ÉÀÔ´Ï´Ù.
 		
-		System.out.println("=====ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ =====");
+		System.out.println("=====¹è¿­¿¡ º¹»çÇÑ ³»¿ë =====");
 		for(int i = 0 ; i < arr.length ; i++) {
 			System.out.println(arr[i]);
 		}//end for
@@ -119,67 +119,67 @@ public class UseList {
 	}//useVector
 	
 	/**
-	 * Multi Threadï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
-	 * ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ç¾ï¿½ ï¿½Ö´ï¿½, ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (Vectorï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+	 * Multi Thread¿¡¼­ µ¿½Ã Á¢±ÙÀÌ °¡´ÉÇÏ´Ù.
+	 * ºñ µ¿±âÈ­°¡ µÇ¾î ÀÖ´Ù, ¼Óµµ°¡ ºü¸£´Ù (Vector¿¡ ºñÇØ)
 	 */
 	public void useArrayList() {
 		
 
-		//1. ï¿½ï¿½ï¿½ï¿½ : Genericï¿½ï¿½ ï¿½âº»ï¿½ï¿½ DatTypeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ , ï¿½âº»ï¿½ï¿½ ï¿½ï¿½ï¿½ Wrapper Classï¿½ï¿½ ï¿½ï¿½ï¿½
+		//1. »ý¼º : GenericÀº ±âº»Çü DatTypeÀ» »ç¿ëÇÒ ¼ö ¾ø´Ù , ±âº»Çü ´ë½Å Wrapper Class¸¦ »ç¿ë
 		ArrayList<Integer> al = new ArrayList<Integer>(3); 
-		//ï¿½âº» ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½, sizeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å©ï¿½â°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½, Dataï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Å©ï¿½â°¡ ï¿½Ã¾î³­ï¿½ï¿½.
+		//±âº» ¹æÀÇ Å©±â, size·Î ¹æÀÇ Å©±â°¡ ³ª¿ÀÁö ¾Ê´Â´Ù, Data°¡ Ãß°¡µÇ¸é ¹æÀÇ Å©±â°¡ ´Ã¾î³­´Ù.
 
 		List<String> list = new ArrayList<String>();
 		
-		System.out.println( "ArrayListï¿½ï¿½ Å©ï¿½ï¿½ " + al.size());
-		System.out.println("ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Å©ï¿½ï¿½ " + al.size());
+		System.out.println( "ArrayListÀÇ Å©±â " + al.size());
+		System.out.println("¸®½ºÆ®ÀÇ Å©±â " + al.size());
 		
-		//2.ï¿½ï¿½ ï¿½ß°ï¿½ : Genericï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Datatypeï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
+		//2.°ª Ãß°¡ : GenericÀ¸·Î ¼³Á¤µÈ Datatype¸¸ Ãß°¡ °¡´É
 		al.add(10); // => al.add(Integer(10));
-		//ï¿½âº»ï¿½ï¿½ Datatypeï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ï¸ï¿½ JVMï¿½ï¿½  ï¿½âº»ï¿½ï¿½ Datatypeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ 
-		//Wrapper Classï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö°ï¿½ ï¿½ß°ï¿½ï¿½Ñ´ï¿½. 
-		// JDK 1.5ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ autoboxing ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½Ñ´ï¿½.
+		//±âº»Çü DatatypeÀ» Ãß°¡ÇÏ¸é JVMÀÌ  ±âº»Çü Datatype¿¡ ´ëÀÀµÇ´Â 
+		//Wrapper Class¸¦ »ç¿ëÇÏ¿© °´Ã¼¸¦ ¸¸µé¾îÁÖ°í Ãß°¡ÇÑ´Ù. 
+		// JDK 1.5ºÎÅÍ Ãß°¡µÈ autoboxing ±â´ÉÀÌ¶ó°í ÇÑ´Ù.
 		
 		al.add(20);
-		System.out.println( "ArrayListï¿½ï¿½ Å©ï¿½ï¿½ " + al.size());
+		System.out.println( "ArrayListÀÇ Å©±â " + al.size());
 		al.add(30);
-		al.add(10); //ï¿½ßºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
-		//capacityï¿½ï¿½ Å©ï¿½â¸¦ ï¿½Ê°ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ß°ï¿½ï¿½È´ï¿½.
-		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å©ï¿½â¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½îµµ Dataï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½.
-		System.out.println( "ArrayListï¿½ï¿½ Å©ï¿½ï¿½ " + al.size());
-		System.out.println(al); //Object.toString()ï¿½ï¿½ altorï¿½ï¿½ Overrideï¿½Ï¿ï¿½ ï¿½Ö¼Ò°ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+		al.add(10); //Áßº¹°ª Çã¿ë
+		//capacityÀÇ Å©±â¸¦ ÃÊ°úÇÏ´õ¶óµµ ¹æÀÌ Áõ°¡ÇÏ¿© Ãß°¡µÈ´Ù.
+		//»ý¼ºÇÒ ¶§ ¹æÀÇ Å©±â¸¦ ÁöÁ¤ÇØÁÖ¾ú¾îµµ Data°¡ Ãß°¡ µÇ¸é °è¼ÓÇØ¼­ ¹æÀÌ Áõ°¡µÈ´Ù.
+		System.out.println( "ArrayListÀÇ Å©±â " + al.size());
+		System.out.println(al); //Object.toString()¸¦ altor°¡ OverrideÇÏ¿© ÁÖ¼Ò°¡ ¾Æ´Ñ °ªÀÌ Ãâ·Â
 		
-		list.add("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
-		list.add("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
-		list.add("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
-		list.add("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
-		list.add("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"); 
-		System.out.println("listï¿½ï¿½ Å©ï¿½ï¿½ " + list.size() + " / " + list);
+		list.add("ÇÔÇý¸²");
+		list.add("ÃÖÇý¿ø");
+		list.add("ÃÖÀºÇý");
+		list.add("Á¤¿¹Áø");
+		list.add("Á¤¼ÒÀ±"); 
+		System.out.println("listÀÇ Å©±â " + list.size() + " / " + list);
 		
-		//ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-		//Genericï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Listï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ warningï¿½ï¿½ ï¿½ß»ï¿½
-		//ï¿½è¿­ï¿½ï¿½ Listï¿½ï¿½ Å©ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
-//		int[]arr = new int[al.size()];  intï¿½ï¿½ Integerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Datatypeï¿½ï¿½ ï¿½Æ´Ï´ï¿½.
+		//¹è¿­·Î º¹»ç
+		//GenericÀÌ ¼³Á¤µÇÁö ¾ÊÀº ListÀÇ º¹»ç´Â warningÀÌ ¹ß»ý
+		//¹è¿­À» ListÀÇ Å©±â·Î ¼±¾ðÇÕ´Ï´Ù.
+//		int[]arr = new int[al.size()];  int¿Í IntegerÀº µ¿ÀÏ DatatypeÀÌ ¾Æ´Ï´Ù.
 		Integer[]arr = new Integer[al.size()];  
 		String[]arr1 = new String[list.size()];
 		
-		//ï¿½ï¿½ï¿½ï¿½ 
+		//º¹»ç 
 		list.toArray(arr1);
 		al.toArray(arr);
 		
-		//3. ï¿½ï¿½ï¿½ï¿½ï¿½ : unboxing ï¿½ß»ï¿½
-		String name = list.get(0); //ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ unboxingï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
+		//3. °ª¾ò±â : unboxing ¹ß»ý
+		String name = list.get(0); //ÀÔ·Â µ¥ÀÌÅÍ Çü°ú ÀúÀåÇÏ´Â µ¥ÀÌÅÍ ÇüÀÌ °°´Ù¸é unboxingÀÌ µ¿ÀÛÇÏÁö ¾Ê´Â´Ù.
 		System.out.println(name);
 		
 		int num = al.get(0); 
-		//get methodï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½ Integerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ unboxingï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ intï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È´ï¿½.
-		//Wrapper Classï¿½ï¿½ Genericï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½âº»ï¿½ï¿½ Datatypeï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ JVMï¿½ï¿½ Wrapper Classï¿½ï¿½ï¿½ï¿½ ï¿½âº»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î³»ï¿½ï¿½  Unboxingï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+		//get methodÀÇ ¹ÝÈ¯ÇüÀº IntegerÀÌÁö¸¸ unboxingÀÌ µ¿ÀÛÇÏ¿© int¿¡ ÀúÀåµÈ´Ù.
+		//Wrapper Class°¡ GenericÀ¸·Î ¼³Á¤µÇ¾î ÀÖÀ» ¶§ ±âº»Çü DatatypeÀ¸·Î °ªÀ» ¾òÀ¸¸é JVMÀÌ Wrapper Class¿¡¼­ ±âº»ÇüÀ¸·Î °ªÀ» ¾ò¾î³»´Â  UnboxingÀ» ¼öÇà.
 		//int num=al.get(0).intValue();
 		
 		
 		System.out.println(name + " / " + num);
 		
-		//4.ï¿½Ï°ï¿½Ã³ï¿½ï¿½
+		//4.ÀÏ°ýÃ³¸®
 		for(int i = 0 ; i < al.size() ; i ++) {
 			System.out.println(al.get(i));
 		}//end for
@@ -189,33 +189,33 @@ public class UseList {
 		}//end for
 		
 		
-		//5.ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		//5.°ª »èÁ¦
 		
-		//indexï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+		//indexÀ¸·Î Áö¿ì±â
 		
-		al.remove(1); //1ï¿½ï¿½ Indexï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-		list.remove(3); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		al.remove(1); //1À» Index·Î °¡Áö°í ÀÖ´Â ¹æÀÇ °ª »èÁ¦
+		list.remove(3); // Á¤¿¹Áø »èÁ¦
 		System.out.println(al);
 		System.out.println(list);
-		//Objectï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
-//		al.remove(new Integer(30));// 30ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ JDK 1.8 ï¿½ï¿½ï¿½ï¿½
-		al.remove(Integer.valueOf(30));// 30ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ // JDK9ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ Static methodï¿½ï¿½ï¿½
-		list.remove("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		//ObjectÀ¸·Î Áö¿ì±â
+//		al.remove(new Integer(30));// 30ÀÌ »èÁ¦ JDK 1.8 ±îÁö
+		al.remove(Integer.valueOf(30));// 30ÀÌ »èÁ¦ // JDK9ÀÌÈÄ¿¡´Â »ý¼ºÀÚ°¡ ºñÃßÃµÀ¸·Î º¯°æµÇ¾î Static method»ç¿ë
+		list.remove("ÇÔÇý¸²");//ÇÔÇý¸² »èÁ¦
 		System.out.println(al);
 		System.out.println(list);
 		
-		System.out.println("alï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â°ï¿½?" + al.isEmpty());
-		System.out.println("listï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â°ï¿½?" + list.isEmpty());
+		System.out.println("al°¡ ºñ¾ú´Â°¡?" + al.isEmpty());
+		System.out.println("list°¡ ºñ¾ú´Â°¡?" + list.isEmpty());
 		
-		//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		//¸ðµç ¹æÀÇ °ªÀ» »èÁ¦
 		al.clear();
 		list.clear();
-		System.out.println("alï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â°ï¿½?" + al.isEmpty());
-		System.out.println("listï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â°ï¿½?" + list.isEmpty());
+		System.out.println("al°¡ ºñ¾ú´Â°¡?" + al.isEmpty());
+		System.out.println("list°¡ ºñ¾ú´Â°¡?" + list.isEmpty());
 		
-//		System.out.println(list.size() == 0); //isemptyï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.
+//		System.out.println(list.size() == 0); //isempty¿Í °°Àº ±â´ÉÀÔ´Ï´Ù.
 		
-		System.out.println("=====ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ =====");
+		System.out.println("=====¹è¿­¿¡ º¹»çÇÑ ³»¿ë =====");
 		for(int i = 0 ; i < arr.length ; i++) {
 			System.out.println(arr[i]);
 		}//end for

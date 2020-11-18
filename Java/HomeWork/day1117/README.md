@@ -71,3 +71,20 @@ Work내용
 	| Python | Guido van Rossum | 1991 |
 	| HTML | Tim Berners, LEE | 1995 |
 	| JavaScript | Brendan  Eich | 알수없음 |
+
+---
+
+### 내 code와 review code 비교
+
+* 내가 작성한 code
+```java
+	//입력받은 List를 배열에 복사해서 넣습니다.
+	String[] copy = new String[list.size()];
+	list.toArray(copy);
+```
+```java
+	if(list.isEmpty()) {//처리된 데이터가 없을 때
+	System.out.println("처리된 Data가 존재하지 않습니다."); //List를 처리할 때는 데이터가 없었을 때의 처리가 필수적으로 들어가야 한다.
+```
+
+>나는 List를 받아와 바로 사용하였지만 List를 사용하기전 List에 값이 있는지 확인을 한 후 List에 data가 없을시의 이벤트를 처리해 줘야 한다.

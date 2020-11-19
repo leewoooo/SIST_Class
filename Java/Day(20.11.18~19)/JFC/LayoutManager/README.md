@@ -6,8 +6,8 @@
     1. FlowLayout
     2. BorderLayout
     3. GridLayout
-    4. GridBackLayout
-    5. CardLayout
+    4. CardLayout
+    5. GridBagLayout
 
     > Container Component, Component를 지정된 위치에 편하게 붙이기 위해 제공되는 Class
 
@@ -104,3 +104,65 @@ BorderLayout b = new BorderLayout();
         add(button);  
         add(label);
         ```
+
+4. Card Layout (Panel에 사용한다.)
+
+    * Container Component에만 사용이 적용할 수 있는 Layout이다. 
+    * 한정적인 공간에 다양한 것을 제공할 때. tap의 역할 (AWT에는 존재하지 않다.
+    )
+
+    * 여러개의 Container Component를 만들어두고 그 중 하나의 Container Component를 보여준다.
+
+5. GridBagLayout
+
+    * 행마다 열의 크기, 갯수를 다르게 보여줄 때 사용한다. (수동배치)
+
+---
+
+#### 2020-11-19 수업 추가 내용
+
+#### 복합 레이아웃
+
+* 제공되는 Layout Manager를 사용하여 복잡한 디자인을 만들 때 사용한다.
+
+
+#### 예제
+
+* Frame의 Layout은 BorderLayout으로 설정을 한다.
+    * BorderLayou은 하나의 영역에 하나의 Component가 고유 크기를 무시하고 배치된다.
+
+* North영역에 3개의 Component가 배치되어야 한다.
+    1. Label, Textfield, button 이 붙어야 한다.
+    2. 일반 Component 3개가 한 Container Component에 배치하여 사용한다. (Jpanel 이용)
+    3. Jpanel을 North영역에 배치한다.(하나의 Component로 인식한다.)
+    * Center영역에 TextArea 배치한다.
+
+* JFrame = BorderLayout , Jpanel = FlowLayout 이 두가지 LayOut을 동시에 사용
+
+
+
+#### 수동 Layout
+
+* 제공되는 Layout Manager를 사용하지 않고 개발자가 배치되는 Component의 크기와 위치를 지정 <br> (위치와 크기를 사용자화 가능.)
+
+* Layout Manager가 제공하지 않는 복잡한 디자인을 할 때 사용한다.
+
+* 단점은 코드의 양이 많아진다. 좌표와 크기계산을 해야한다.
+
+* 사용방법
+    ```java
+    //1. 자동배치관리자를 해제한다.
+    setLayout( null );
+
+    /*
+    2.Component를 생성하고 배치되는 위치와 크기를 설정한다.
+     
+    위치설정 = setLocation(x,y) 
+    Jframe에 사용되면 모니터의 왼쪽 상단이 기준점
+    Container Component, Component에 사용되면 Jframe의 왼쪽 상단이 기준줌
+    */
+    
+    //크기설정 = setSize(w,h)
+
+    //위치와 크기를 한번에 설정 setBounds(int x, int y, int width, int height) 
+    

@@ -102,6 +102,16 @@ public class UseSwing extends JFrame {
 	jb.setRollOverIcon("변경될 이미지 파일의 경로");
 	```
 
+
+* 사용 예시
+
+	<img src = https://user-images.githubusercontent.com/74294325/99745064-431d3b80-2b1c-11eb-943f-95ba3b88c028.png>
+
+	* setRollovrtIcon 사용
+
+	<img src = https://user-images.githubusercontent.com/74294325/99755484-3f92b000-2b2e-11eb-857a-d3c63aeeebb1.png>
+
+
 ---
 
 ### JLabel (컴포넌트의 정보 제공, 이름표의 역할)
@@ -165,7 +175,7 @@ public class UseSwing extends JFrame {
 
 * TextComponent의 예
 
-	<img src = "https://user-images.githubusercontent.com/74294325/99677924-98763000-2abd-11eb-9908-e677c60e79a9.PNG" width ="300"  height = "300" >
+	<img src = "https://user-images.githubusercontent.com/74294325/99677924-98763000-2abd-11eb-9908-e677c60e79a9.PNG" width ="250"  height = "250" >
 
 ---
 
@@ -195,4 +205,211 @@ public class UseSwing extends JFrame {
 
 * CheckButton의 예
 
-	<img src = https://user-images.githubusercontent.com/74294325/99678253-f571e600-2abd-11eb-8f8b-daf9dd9224af.PNG width =300 height =300>
+	<img src = https://user-images.githubusercontent.com/74294325/99678253-f571e600-2abd-11eb-8f8b-daf9dd9224af.PNG width =250 height =250>
+
+---
+
+### 2020-11-20 내용추가
+
+### JMenu , JMenuBar, JMenuItem 
+
+* 고정된 위치에서 사용자에게 서비스를 제공할 때 사용한다.
+
+	1. MenuBar : Menu들이 배치되어 제공되는 막대
+	2. Menu : 비슷한 일을 하는 MenItem을 묶어서 제공하기위한 컴포넌트
+	3. MenItem : 개별적인 일을 제공하기 위한 컴포넌트
+
+	<img src =https://user-images.githubusercontent.com/74294325/99743247-a5743d00-2b18-11eb-9296-5a99cdfcfe01.png>
+
+
+* 사용방법
+
+	1. JMenuBar를 생성
+		```java
+		JMenuBar jb = new JMenuBar();
+		```
+	2. JMenu를 생성
+		```java
+		JMenu jm = new JMenu("대표이름");
+		```
+	3. JMenuItem을 생성
+		```java
+		JMenuItem jmi = new JMenuItem("서비스할 이름");
+		```
+	4. 생성된 JMenuItem을 JMenu에 배치
+		```java
+		jmi.add("메뉴 아이템 객체");
+		jmi.add("다른 메뉴 객체"); // 메뉴아이템에서 하위 메뉴를 제공할 때
+
+		//jmi에 구분선 넣기
+		jmi.addseparator();
+		```
+
+	5. JMenuItem을 JMenu를 JMenuBar에 배치한다.
+		```java
+		Jb.add(메뉴객체);
+		```
+
+	6. MenuBar를 Window Component에 배치한다.
+		```java
+		setMenuBar(jb);
+		```
+	
+	* 사용 예시
+
+		<img src = https://user-images.githubusercontent.com/74294325/99744033-3dbef180-2b1a-11eb-821e-a9ee3621ec72.png>
+
+---
+
+### TitledBorder (JComponent 자식class는 전부 사용 가능)
+
+* 테두리를 가진 제목을 설정하는 Component
+
+* 대부분의 Component들은 Border를 가질수 있다.
+
+* javax.swing.border package에는 테두리를 설정할 수 있는 Component가 존재한다.
+
+* 사용방법
+	```java
+	//1.생성
+	TitledBorder tb = new TitledBorder("타이틀");
+	//2.Border가 필요한 컴포넌트에 생선한 border 설정
+	JButton jbtn = new JButton();
+	jbtn.setBorder(tb);
+	```
+
+---
+
+
+
+### MVC Patten을 도입하여 제작된 컴포넌트들. (JCombo, JList,JTable)
+
+### MVC Pattern (Model , View , Controller)
+		
+* Moder = 데이터를 관리하고 처리하는 일.
+
+* View = 데이터를 보여주는 일.
+
+* Controller = 이벤트 처리. 업무 로직(Business Logic: 연산,제어) 구현하는일.
+
+
+* Model 1
+	
+	* 서로 다른 생명주기를 가진 업무가 하나의 파일에 존재한다.
+
+	* 값의 사용이 쉽고 error처리가 편리하다. 개발 결과가 빠르게 나온다
+
+	* 단점으로는 파일의 복잡도가 상승하고 파일을 수정할 때 다른 코드를 훼손의 가능성이 있다. <br> 
+	(업무 분장이 어려워지고 코드수정이 어렵다.)
+
+	
+
+* MVC Pattern (Model2 방식의 개발)
+
+	* `하나의 서비스를 분해하여 구현하기 위한 개발 방식(Design Pattern)`
+	  >-코드의 복잡성이 낮아지고 책임이 명확해지며 업무를 구분하여 작성하기 좋다. <br>
+	-`유지보수가 편해진다. (프로그램의 생명이 길어진다.)`
+	
+	* `생명주기가 서로 다른 작업을 분해하여 구현하는 방식`
+		> (Model file, View file, Controller file) 3개의 파일을 관리한다.
+
+	* 단점으로는 파일이 많아지고 관리가 복잡해진다, 값의 처리 및 error 처리가 복잡하다. 
+
+---
+
+* JcomboBox
+
+	* 사용방법
+		1. DATA를 가진 Model class를 만든다.
+			```java
+			DefaultComboBoxModel<E> dcbm = new DefaultComboBoxModel<E>();
+			```
+		2. Model Instnace에 DATA를 추가하자
+
+			```java
+			dcbm.addElememt("값");//값으로 배열을 받을수 있다.
+			```
+		3. DATA를 보여줄 View class 생성
+			```java
+			JComboBox jcb = new JcomboBox(dcbm);
+			```
+
+	* 사용예제
+
+		<img src = https://user-images.githubusercontent.com/74294325/99751945-a4e2a300-2b26-11eb-8144-85dbfde4f145.png>
+
+* JList (ScrollBar를 가지고 있지 않다.)
+
+	* 사용방법
+
+		1. DATA를 가진 Model class를 만든다.
+			```java
+			DefaultListModel<E> dlm = new DefaultListModel<E>();
+			```
+		2. Model Instnace에 DATA를 추가하자
+
+			```java
+			dlm.addElememt(값); //값으로 어떠한 타입도 받을수 있다.
+			```
+		3. DATA를 보여줄 View class 생성
+			```java
+			JList jl = new JList(dlm);
+			```
+		4. ScrollBar를 추가해준다.
+			```java
+			JScrollPane jsp = new JScrollPane(jl);
+			```
+
+	* 사용예제
+
+		<img src = https://user-images.githubusercontent.com/74294325/99755326-d9a62880-2b2d-11eb-844b-7e2fcbc1a67f.png>
+
+
+* JTable(데이터를 시안성을 높여 보여줄 때 사용한다.)
+
+	* javax.swing.table package에서 DefaultTableModel을 제공
+
+	* column명을 일차원 배열로 생성
+		```java
+		String[] columnNames={"column명","column명",,,,};
+		```
+	
+	* DATA는 2차원 배열로 생성
+		```java
+		String[][] rowData={{"값","값","값",,},{"값","값","값",,}};
+		```
+
+	* 사용방법
+
+		1. DATA를 가진 Model class를 만든다.
+			```java
+			DefaultTableModel dtm = new DefaultTableModel (rowData,columnNames);
+			```
+		2. Model Instnace에 DATA를 추가하자
+
+			```java
+			//배열
+			String[] data = {"값",,,,};
+			dtm.addRow(data);
+			//Vector (is-a로 instance화를 사용하면 안된다.)
+			Vector<E> vt = new Vector<E>();
+			vt.add("값"); //column의 갯수만큼 add를 사용한다.
+			dtm.addRow(vt);
+			```
+		3. DATA를 보여줄 View class 생성
+			```java
+			JTable jt = new JList(dtm);
+			```
+		4. ScrollBar를 추가해준다.
+			```java
+			JScrollPane jsp = new JScrollPane(jt);
+			```
+
+		* JScrollPane을 사용하지 않고 JTable을 직접 배치하면 Table의 Header가 보여지지 않는다.
+
+		* 사용예제
+
+			<img src =https://user-images.githubusercontent.com/74294325/99773269-8b098600-2b4f-11eb-98da-5c4bbd19b09f.png>
+
+---
+

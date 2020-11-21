@@ -107,7 +107,7 @@ public class UseSwing extends JFrame {
 
 	<img src = https://user-images.githubusercontent.com/74294325/99745064-431d3b80-2b1c-11eb-943f-95ba3b88c028.png>
 
-	* setRollovrtIcon 사용
+	* setRolloverIcon 사용
 
 	<img src = https://user-images.githubusercontent.com/74294325/99755484-3f92b000-2b2e-11eb-857a-d3c63aeeebb1.png>
 

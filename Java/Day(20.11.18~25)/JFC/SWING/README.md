@@ -413,3 +413,114 @@ public class UseSwing extends JFrame {
 
 ---
 
+### 2020-11-25 추가된 내용
+
+* JOptionpane
+
+    * 간단한 대화창을 제공할 때 사용하는 class
+    
+    * ConfirmDialog, MessageDialog, InputDialog가 제공.
+
+    * 사용법 = 객체를 생성하여 사용하지 않는다. (Static method사용)
+
+    1. ConfirmDialog : 사용자의 의향을 물어볼 때 사용한다.(에/아니오, 확인/취소)
+
+        ```java
+        JOptionPane.showConfirmDialog(윈도우컴포넌트, "메세지");
+
+        int flag =JOptionPane.showConfirmDialog(this, "창을 닫으시겠습니까?");
+		
+		switch (flag) {
+		case JOptionPane.OK_OPTION: 
+			dispose();
+			break;
+		case JOptionPane.NO_OPTION:
+			System.out.println("아니오");
+			break;
+		case JOptionPane.CANCEL_OPTION:
+			System.out.println("취소");
+		}
+        ```
+        <img src =https://user-images.githubusercontent.com/74294325/100174320-8b1ed280-2f0f-11eb-826e-f756e8d1246f.png>
+
+    2. MessageDialog : 사용자에게 단순 정보를 제공할 때.
+
+        ```java
+        JOptionPane.showMessageDialog(윈도우컴포넌트,"메세지");
+        ```
+
+        <img src =https://user-images.githubusercontent.com/74294325/100174977-e1404580-2f10-11eb-8183-d0c7bb5dcccb.png>
+
+    3. InputDialog : 사용자가 입력하는 메세지를 받을 때.
+
+        ```java
+        String msg = JOptionPane.showInputDialog("메세지");
+        ```
+
+        <img src = https://user-images.githubusercontent.com/74294325/100175208-4ac05400-2f11-11eb-9ab9-bfa48b656047.png>
+
+        * 변수로 받아 사용할 수 있다.
+    
+
+* JpasswordField의 값 String 얻기.
+    
+    ```java
+    JpasswordField jpf = new JpasswordField();
+    
+    char[] pass = jpf.getPassword();
+    //char[]은 다른 배열과는 다르게 출력하면 주소가 아닌 값이 나온다.
+
+    /*
+    문자열로 저장하는 법.
+    1. 생성자 사용.
+    String str = new String( pass );
+    2. valueOf() 사용.
+    String str = String.valueOf( pass );
+    ```
+---
+
+
+* Font class의 사용
+
+	* java.awt package에서 제공한다.
+
+	* Non Visual Component로 컴포넌트의 폰트(글꼴, 크기 , 스타일) 정보를 병경해주는 일을 하는 class
+
+	* 사용ex)
+
+    	1. 객체를 생성한다.
+        	```java
+        	Font fnt = new Font("글꼴",스타일,크기);
+     		```
+
+    	* 글꼴 = Dialog, DialogInput, Monospaced, Serif, or SansSerif
+        * 스타일 = PLAIN, BOLD, ITALIC(for example, bitwise BOLD|ITALIC)
+
+        	```java
+        	Font fnt = new Font("SanSerif",Font.BOLD,20);
+        	```
+
+    	2. font를 적용할 컴포넌트에 setFont()를 사용하여 생성된 font를 적용.
+
+        	```java
+        	JButton jbtn = new JButton();
+        	jptn.setFont(fnt);
+        	```
+---
+
+* color class의 사용
+
+	* Non Visual Component로 컴포넌트의 글자색, 바닥색을 변경할 때 사용.
+
+	* 몇가지 색은 상수로 제공을 한다. 복잡한 색은 RGB를 이용한 생성자로 정의한다.
+
+        ```java
+        //글자색(전경색) : Foreground Color
+        jlbl.setForegound(Color.RED);
+        
+        //바닥색 : Background Color
+        //투명도 설정이 되어있지 않은 component는 바로 적용
+        //투명도 설정이 되어 있는 component는 투명도를 해제 해야한다.
+        jibl.setOpaque(true);//투명도 해제
+        jibl.setBackground(Color.RED);
+        ```

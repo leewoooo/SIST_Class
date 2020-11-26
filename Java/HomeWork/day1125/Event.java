@@ -27,17 +27,21 @@ public class Event implements ActionListener{
 		String id = ds.getJtfName().getText();
 		String password =String.valueOf(ds.getJpwPassword().getPassword());
 		
-		if(e.getSource() == ds.getJtfName() && id.length()>0) {
+		if(e.getSource() == ds.getJtfName() && !(id.isEmpty())) {
 			this.idFlag=true;
 			ds.getJpwPassword().requestFocus();
-		}else if(e.getSource() == ds.getJtfName() && id.length()<1) {
+		}
+		
+		if(e.getSource() == ds.getJtfName() && id.isEmpty()) {
 			JOptionPane.showMessageDialog(ds, "ID필수입력");
 			ds.getJtfName().requestFocus();
 		}//end if
 		
-		if(e.getSource() == ds.getJpwPassword() && password.length()>0) {
+		if(e.getSource() == ds.getJpwPassword() && !(password.isEmpty())) {
 			this.passwordFlag=true;
-		}else if(e.getSource() == ds.getJpwPassword() && password.length()<1) {
+		}
+		
+		if(e.getSource() == ds.getJpwPassword() && password.isEmpty()) {
 			JOptionPane.showMessageDialog(ds, "PASSWORD필수입력");
 			ds.getJpwPassword().requestFocus();
 		}//end if

@@ -143,7 +143,7 @@ public class UseSwing extends JFrame {
 
 ---
 
-### JTextArea (쳐러줄의 문자열을 입력 할 때)
+### JTextArea (여러줄의 문자열을 입력 할 때)
 
 * java.awt.TextArea : ScrollBar가 포함되어 제공된다.
 
@@ -209,7 +209,7 @@ public class UseSwing extends JFrame {
 
 ---
 
-### 2020-11-20 내용추가
+## 2020-11-20 내용추가
 
 ### JMenu , JMenuBar, JMenuItem 
 
@@ -524,3 +524,147 @@ public class UseSwing extends JFrame {
         jibl.setOpaque(true);//투명도 해제
         jibl.setBackground(Color.RED);
         ```
+---
+
+## 2020-11-26 추가내용
+
+<br>
+
+
+## FileDialog
+
+* java.awt pacakage에서 제공하는 window component이다
+
+* 파일을 선택할 때 사용.
+
+    <img src = https://user-images.githubusercontent.com/74294325/100293906-9124ba00-2fc8-11eb-82f2-7990a63d0693.png>
+
+
+* Windows OS에서 사용하는 Dialog를 사용한다.
+
+* 반드시 부모창(Window,Frame,Dialog)이 필요하다. 
+
+* 사용ex)
+
+    1. 생성
+        ```java
+        FileDialog fd = new FileDialog(Frame parent,String Title, int mode);
+        //mode는 열기와 저장이 있다.
+        //FileDialog에 있는 상수를 가져다 쓴다. LOAD, SAVE
+        ```
+    2. 사용자에게 보여주기
+        ```java
+        fd.setVisible(true);
+        ```
+
+    3. 선택한 폴더 얻기
+        ```java
+        String path = fd.getDirectory();
+        ```
+    
+    4. 선택한 파일명 얻기
+        ```java
+        fd.getFile();
+        ```
+
+---
+
+## Dialog
+
+* Window Component이며 Window(Frame)에서 부가적인 정보를 제공할 때 사용하는 Window
+
+* 주 기능(Frame) 부가적인 기능(Dialog)
+
+* 메모장으로 예를 들면 메모를 하는 것이 주 기능이고 Font를 변경하는 것이 부가 기능이라 할 수 있다.
+
+* Dialog가 활성화 되어있을 때 부모 창의 접근을 막는 것을 Modal이라고 한다.
+    > 자식 창이 동작했을 때 부모 창의 선택을 허가하지 않는것. 생성자에서 boolean으로 관리
+
+<br>
+
+* 사용 ex1) (상속하지 않고 사용할 때, 배치되는 컴포넌트의 수가 적을 때)
+
+    1. 생성 (Dialog Default layout은 BorderLayout)
+
+        ```java
+        JDialog jd = new JDialog(Dialog owner, String title, boolean modal);
+        ```
+
+    2. Dialog에 배치될 component를 생성한다.
+
+        ```java
+        Jbutton jb = new Jbutton("버튼");
+        ```
+    
+    3. Dialog 배치
+
+        ```java
+        jd.add("Center",jb);
+        ```
+
+    4. Dialog의 크기 설정
+
+        ```java
+        jd.setBounds(x,y,w,h);
+        ```
+
+    5. Dialog를 사용자에게 보여주기
+
+        ```java
+        jd.setVisible(true);
+        ```
+    
+    6. Dialog의 종료처리
+
+        ```java
+        jd.setDefaultCloseOperator(JFrame.DISPOSE_ON_CLOSE);
+        ```
+    
+* 사용 ex2) (상속받아서 사용, 배치되는 컴포넌트가 복잡할 때)
+
+    1. JDialog를 상속받는다. (Jpanel도 동일한 방법 사용가능, 각자 만들어서 하나로 붙일때 사용)
+
+        ```java
+        public class Test extends JDialog{
+        ```
+    
+    2. 부모 창(Jframe을 상속받고 있는 class)과 Has - A 관계를 설정하는 생성자를 만든다.
+
+        ```java
+        public Test(ParentWindow pw){
+            super(pw,"Dialog의 title", modla여부)
+        ```
+        
+    3. Dialog에 배치될 component를 생성한다.
+
+        ```java
+        JButton jbtn = new Jbutton("버튼");
+        ```
+    
+    4. 배치
+
+        ```java
+        add("Center", jbtn);
+        ```
+    
+    5. Dialog의 크기설정
+
+        ```java
+        setBounds(pw.getX(),pw.getY(),w,h);
+        //Dialog를 실행할 때 부모창 안에서 실행이 되어야 하기 때문에
+        //부모의 실행 좌표 X,Y를 얻어오는 get() method를 호출해서 사용한다.
+        ```
+    
+    6. 사용자에게 보여주기
+
+        ```java
+        setVisible(true);
+        ```
+    
+    7. Window를 종료한다.
+
+        ```java
+        //Dialog를 닫을 때에는 EXIT_ON_CLOSE Constant를 사용할 수 없다. 
+        setDefaultCloseOperator(JFrame.DISPOSE_ON_CLOSE);
+        ```
+---

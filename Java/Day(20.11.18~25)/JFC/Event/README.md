@@ -192,3 +192,85 @@ Event Handling
 하지만 나는 WindowClosing method하나만 사용할려한다. 이 때 Adapter Design pattern을 이용한다.
 
 * WindowListener -> Windowadpter
+
+* Windowadpter를 상속받아 WindowListener의 자원을 사용하자.
+
+---
+
+
+## 2020-11-26 추가내용
+
+<br>
+
+
+## Key event
+
+* Text Component에서 사용 (JTextField, JPasswordField, JTextArea)
+
+* 키보드의 key가 눌렸을 때 동작하는 event이다.
+
+* keyListener은 Interface이며 3개의 method를 가지고 있다 keyListener를 구현한 KeyAdapter를 사용한다.
+
+* 사용ex)
+
+    1. keyListener를 구현한다. or KeyAdaper를 상속한다.
+
+        ```java
+        public class Test extends JFrame implements KeyListener{
+        ```
+
+    2. abstract method Override.
+
+        ```java
+
+         @Override
+        public void KeyPressd(Key Event){
+            //key가 눌려지는순간에 처리해야할 일.
+        }
+
+        @Override
+        public void KeyType(Key Event){
+            //키가 눌려서 문자가 입력되는 순간에 해야할 일
+        }
+
+       
+
+        @Override
+        public void KeyReleased(Key Event){
+            //눌린 키가 올라오는 순간에 해야 할 일
+        }
+        ```
+
+    3. TextComponent를 Event에 등록시킵니다.
+
+        ```java
+        jtf.addKeyListener(Event를 처리할 Instance);
+        ```
+    
+* KeyEvent로 눌린 key의 keycord와 key문자를 얻을 수 있다.
+
+    ```java
+    int keycord = ke.getKeyCode(); //유니코드로 반환
+    char key의 문자 = ke.getKeyChar(); //문자로 반환
+    ```
+* keyCode는 ASCII code가 아니고 키보드의 키를 식별하기 위한 고유의 값.
+
+* ASCII code는 소문자와 대문자를 식별하기 위한 다른 코드 값을 같는다. a(97) A(65)
+
+* Keycode는 a와 A의 값은 동일하다 같은 key를 사용하기 때문이다. a(65) A(65)
+
+---
+
+## Mouse Event
+
+* Mouse Adapter을 상속받던 anonymousclass를 만들어 사용한다.
+
+* addMouseListener에 등록하여 사용한다.
+
+
+---
+
+
+
+
+

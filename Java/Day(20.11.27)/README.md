@@ -134,7 +134,7 @@ Exception Handling
 
             * 예외를 자세하게 내용들을 출력
                 ```java
-                예외 instance.printStackTrace(); 
+                printStackTrace(); 
                 //출력까지 같이해준다.
                 //stack에 쌓인 Message들을 가져와 출력해준다.
                 //stack에서 가져오는동안 정상실행되는 code가 먼저 출력 될 수도 있다.

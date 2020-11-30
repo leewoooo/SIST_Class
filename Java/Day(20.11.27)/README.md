@@ -134,7 +134,7 @@ Exception Handling
 
             * 예외를 자세하게 내용들을 출력
                 ```java
-                printStackTrace(); 
+                예외 instnace.printStackTrace(); 
                 //출력까지 같이해준다.
                 //stack에 쌓인 Message들을 가져와 출력해준다.
                 //stack에서 가져오는동안 정상실행되는 code가 먼저 출력 될 수도 있다.
@@ -219,3 +219,29 @@ Exception Handling
 
         * A에 정의해놓은 상수를 넣고 변수에 비교대상이 될 값을 넣어 방지한다.
         
+---
+
+## 2020-11-30 추가 내용
+
+* 사용자정의 예외처리 Class
+
+* java에서 제공하는 예외처리 class가 현재 업무 상황에 맞지 않을 때 개발자가 예외처리 class를 생성하는 것.
+
+* Compile 예외를 만들 때 : Exception 상속.
+
+* Runtime 예외를 만들 때 : RuntimeExceptio 상속.
+
+* class 관계 
+
+    <img src = https://user-images.githubusercontent.com/74294325/100558415-b891c480-32f1-11eb-9cdf-6d93c62eda28.png>
+
+* 문법)
+
+    ```java
+    public class MyException extends Exception {
+        public MyException(){
+            supur("예외발생 시 제공할 message를 입력한다");
+        }//MyException
+    }//class
+
+* 사용자정의 예외처리 package를 만들어서 예외들을 처리할 class를 만들고 import를 받아 사용한다.

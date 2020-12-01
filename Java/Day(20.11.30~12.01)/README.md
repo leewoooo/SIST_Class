@@ -45,73 +45,81 @@ IO(Input / Output Stream)
     
     * **`System class에서 제공하는 표준 stream은 close()하지 않습니다.`**
 
-* 입력의 근원 
+
+---
+
+## 입력의 근원 
     
-    * 시스템 입력 (키보드 입력)
+* 시스템 입력 (키보드 입력)
 
-        * 키보드를 입력하면 keyboardBuffer에 키 값들이 적재된다. (길이는 256)<br> Enter가 입력되면 적재된 키 값들이 Os로 넘겨진 후 Os가 실행 가능한 명령인지 판단.
+    * 키보드를 입력하면 keyboardBuffer에 키 값들이 적재된다. (길이는 256)<br> Enter가 입력되면 적재된 키 값들이 Os로 넘겨진 후 Os가 실행 가능한 명령인지 판단.
 
-            * Enter가 입력되면 keyboardBuffer에 있는 내용은 os에게 전달 후 초기화
+    * Enter가 입력되면 keyboardBuffer에 있는 내용은 os에게 전달 후 초기화
 
-            * 구조 
+        * 구조 
 
-                <img src = https://user-images.githubusercontent.com/74294325/100574830-323fa780-331e-11eb-9ed1-19acf8cf98be.png>
+            <img src = https://user-images.githubusercontent.com/74294325/100574830-323fa780-331e-11eb-9ed1-19acf8cf98be.png>
 
-            * 키보드의 입력을 받기위해서는 JVM이 연결한 System.in Stream을 사용한다.
+        * 키보드의 입력을 받기위해서는 JVM이 연결한 System.in Stream을 사용한다.
 
-            * 문법)
+        * 문법)
 
-                ```java
-                trt{
-                    int inputCode = System.in.read();
-                }catch(IOException ie{//read method가 예외를 throws하고 있기에 처리해줘야함.
-                    //예외 처리 코드 
-                }//end catch
-                ```
+            ```java
+            trt{
+            int inputCode = System.in.read();
+            }catch(IOException ie{//read method가 예외를 throws하고 있기에 처리해줘야함.
+            //예외 처리 코드 
+            }//end catch
+            ```
       
 
-        * BufferedReader, InputStreamReader의 사용
+### BufferedReader, InputStreamReader의 사용
 
-            <img src = https://user-images.githubusercontent.com/74294325/100583212-bd746980-332d-11eb-805e-cbca9aa7e2b6.png>
+* BufferedReader, InputStreamReader
+
+    * 구조
+
+        <img src = https://user-images.githubusercontent.com/74294325/100583212-bd746980-332d-11eb-805e-cbca9aa7e2b6.png>
 
 
-            <br>
-            <br>
+        <br>
+        <br>
 
-            * 8bit stream은 한글을 읽어드릴 수 없다. 그렇기에 8bit stream과 16bit stream을 이어서 사용한다.
+    * 8bit stream은 한글을 읽어드릴 수 없다. 그렇기에 8bit stream과 16bit stream을 이어서 사용한다.
 
-            * BufferedReader
+    * BufferedReader
                 
-                * 16bit stream으로 줄단위의 입력을 읽어 들일 수 있다.
+        * 16bit stream으로 줄단위의 입력을 읽어 들일 수 있다.
 
-                * 생성자는 기본생성자가 없고 Reader를 매개변수로 받는 생성자가 있다.
+        * 생성자는 기본생성자가 없고 Reader를 매개변수로 받는 생성자가 있다.
 
-                * Reader매개변수에 InputStreamReader를 이용하여 사용한다.
+        * Reader매개변수에 InputStreamReader를 이용하여 사용한다.
 
-            * InputStreamReader
+    * InputStreamReader
 
-                * 16bitstream과 8bit stream을 이어주는 역할을 한다. 
+        * 16bitstream과 8bit stream을 이어주는 역할을 한다. 
 
-                * 매개변수로 8bit inputstream을 받는다.
+        * 매개변수로 8bit inputstream을 받는다.
 
-            * 문법)
+        * 문법)
 
-                ```java
-                BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
-			    String msg = br.readLine(); //키보드로 입력되어 Enter치기전까지의 값들을 읽어옴
-			    System.out.println(msg);
-                ```
+            ```java
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
+			String msg = br.readLine(); //키보드로 입력되어 Enter치기전까지의 값들을 읽어옴
+			System.out.println(msg);
+            ```
         
+
 ---
-## 2020-12-01 추가 내용
+# 2020-12-01 추가 내용
 
-* 입력의 근원
+## 입력의 근원
 
-    * HDD (file)
+* HDD (file)
 
-        * 8bit Stream : FileInputStream - 모든 파일을 읽어들 일 수 있다.(파일 복사)
+    * 8bit Stream : FileInputStream - 모든 파일을 읽어들 일 수 있다.(파일 복사)
 
-        * 16bit Stream : FileReader - 독자 포멧을 사용하지 않는 text file을 읽어들일 때.
+    * 16bit Stream : FileReader - 독자 포멧을 사용하지 않는 text file을 읽어들일 때.
 
     * file
 
@@ -188,7 +196,7 @@ IO(Input / Output Stream)
             ```
 
             ---
-         * 조작
+        * 조작
 
             1. 폴더생성 (파일은 생성 할 수 없다. :출력스트림 사용)
 
@@ -221,16 +229,16 @@ IO(Input / Output Stream)
                 ```java
                 file.renameTo(변경할 이름을 가진 파일instance);
                 ```
-    ---
+---
 
-    * File Stream 사용
+### File Stream 사용
         
 
-        * FileInputStream (8bit Stream / 한글을 읽어드릴 수 없다.)
+* FileInputStream (8bit Stream / 한글을 읽어드릴 수 없다.)
 
-        * 구조
+    * 구조
 
-            <img src = https://user-images.githubusercontent.com/74294325/100746781-82a12d00-3424-11eb-9724-cb6322a91886.png>
+        <img src = https://user-images.githubusercontent.com/74294325/100746781-82a12d00-3424-11eb-9724-cb6322a91886.png>
 
         ```java
         try{
@@ -246,11 +254,11 @@ IO(Input / Output Stream)
         }//end catch
         ```
 
-        * BufferedReader , FileReader
+* BufferedReader , FileReader
 
-        * 구조
+    * 구조
 
-            <img src = https://user-images.githubusercontent.com/74294325/100746822-9056b280-3424-11eb-8632-11d752ae31f1.png>
+        <img src = https://user-images.githubusercontent.com/74294325/100746822-9056b280-3424-11eb-8632-11d752ae31f1.png>
 
         ```java
         //1. File에 스트림 연결
@@ -269,7 +277,7 @@ IO(Input / Output Stream)
         }
         ```
 
-        * BufferedReader를 사용했을 때 한글이 깨지면 Charset을 Encoding하는 기능의 스트림 사용.
+    * BufferedReader를 사용했을 때 한글이 깨지면 Charset을 Encoding하는 기능의 스트림 사용.
 
-        * InputStreamReader는 8bit와 16bit을 연결하는 역할도 하지만 Encoding 하는 역할도 있다.
+    * InputStreamReader는 8bit와 16bit을 연결하는 역할도 하지만 Encoding 하는 역할도 있다.
 

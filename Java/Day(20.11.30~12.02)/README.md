@@ -30,7 +30,6 @@ IO(Input / Output Stream)
         * 16bit Stream은 문자열에 한하여 읽고 쓰기가 둘다 가능하다.(유니코드로 된 문자를 입출력)<br>
         (Inputstream = Reader, Output stream = Writer)
 
-    
         * 8bit Stream은 모든 종류의 Data를 읽고, 쓸 수 있다.<br>    
         (Inputstream , Outputstream)
 
@@ -158,7 +157,7 @@ IO(Input / Output Stream)
             4. 파일의 규범경로를 반환하는 method(Os에서 파일에 접근할 수 있는 단 하나의 유일한 경로)
 
             ```java
-            file.CanonicalPath();
+            file.getCanonicalPath();
             ```
 
             5. 파일의 경로

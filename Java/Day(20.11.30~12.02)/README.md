@@ -281,3 +281,193 @@ IO(Input / Output Stream)
 
     * InputStreamReader는 8bit와 16bit을 연결하는 역할도 하지만 Encoding 하는 역할도 있다.
 
+---
+# 2020-12-02 추가 내용
+
+## 출력 Stream
+
+### 출력의 목적지 : File , File Stream의 사용
+
+* 8bit : FileOutputStream - 모든 데이터를 파일에 기록할 수 있다.
+
+    * FileOutputStream의 사용
+
+    * 순서(스트림연결 -> 스트림에 기록 -> 스트림의 기록된 내용 분출 -> 기록 -> 스트림 끊기)
+
+    * 구조
+
+        <img src = https://user-images.githubusercontent.com/74294325/100836482-b4f96b80-34b2-11eb-9564-0bc4e198e4bc.png >
+
+    ```java
+    //1.생성(파일이 없을시 생성, 동일한 이름의 파일이 있을시 덮어쓴다.)
+    //덮어쓰기전 물어보는 옵션은 JoptionPane을 이용하자
+    //Directory는 만들 수 없기 때문에 Direactory를 만들려면 File Class와 같이 사용한다.
+    FileOutputStream fos = new FileOutputStream(new File("파일의경로")); //FileNotFoundExcption 발생
+
+    //2.Data를 Stream에 쓴다 (write() method를 이용한다.)
+    //Stream에만 기록하는 것이지 file에는 적용이 되는 것이 아니다.
+    fos.write(byte의 배열 or 정수); //IOException 발생 
+
+    //3.Stream에 기록된 내용을 목적지로 분출한다.(flush() method를 이용한다.)
+    fos.flush(); //IOException 발생
+    
+    //4.Stream 끊기 (Memory의 Leak 방지)
+    fos.close(); //IOException 발생
+    ```
+
+* 16bit : FileWriter - 문자열 데이터만 파일에 기록할 수 있다.
+
+    * 구조
+
+        <img src = https://user-images.githubusercontent.com/74294325/100836249-503e1100-34b2-11eb-8e45-0830862efa55.png>
+
+    ```java
+    //1.생성(파일이 없을시 생성, 동일한 이름의 파일이 있을시 덮어쓴다.)
+    //덮어쓰기전 물어보는 옵션은 JoptionPane을 이용하자
+    //Directory는 만들 수 없기 때문에 Direactory를 만들려면 File Class와 같이 사용한다.
+    FileWriter fw = new FileWriter(new File("파일의경로")); //FileNotFoundExcption 발생
+
+    //2.Data를 Stream에 기록한다
+    fw.write("문자열");
+
+    //3.Stream에 기록된 내용을 목적지로 분출한다.
+    fw.flush(); //기본형이 아닌 데이터형을 기록한 경우 flushf를 꼭 사용
+
+    //4.Stream 끊기
+    fw.close(); 
+    //끊기를 이용하면 flush를 하지 않아도 분출되고 Stream은 끊어진다.
+    //하지만 일반적으로 flush로 분출하고 남은것을 close가 check해주는 역할
+    ```
+
+* Input과 동일하게 16bit와 8bit를 결합하여 Stream을 생성해서 속도를 향상 시킬수 있다.
+
+    * 구조
+
+        <img src = https://user-images.githubusercontent.com/74294325/100836523-c80c3b80-34b2-11eb-86d7-40eaed6f753b.png>
+
+
+---
+
+### File 복사
+
+* 대상 File을 읽어들여, 다른 이름의 파일에 그대로 내보내는 것이다.
+
+* 구조
+
+    <img src = https://user-images.githubusercontent.com/74294325/100830318-b329ab00-34a6-11eb-9f71-78dd84a1bb60.png>
+
+
+* code
+
+    ```java
+    //1.읽기 스트림 연결
+    FileInputStream fis = new FileInputStream(new File("경로"));
+
+    //2. 쓰기 스트림을 연결
+    FileOutputStream fos = new FileOutputStream(new File("경로"));
+
+    //3. 파일의 내용을 읽어온다.
+    int temp = 0;
+    while((temp = fis.read()) != -1){
+
+    //4. 스트림에 기록한다.
+    fos.write(temp);
+
+    //5. 스트림을 목적지에 분출한다.
+    fos.flush();
+    }
+
+    //6. 연결 끊기
+    fos.close();
+    fis.close();
+    ```
+
+---
+
+### 읽기, 쓰기 스트림의 속도 개선
+
+* code
+
+    ```java
+    //1.읽기 스트림 연결
+    FileInputStream fis = new FileInputStream(new File("경로"));
+
+    //2. 쓰기 스트림을 연결
+    FileOutputStream fos = new FileOutputStream(new File("경로"));
+
+    //3. 파일의 내용을 읽어온다.
+    int readSize = 0; //읽어드린 크기
+    byte[] readData = new byte[512]; //HDD의 head가 한번에 읽어들여 저장할 크기와 비슷한 크기의 배열 생성
+    
+    //1. 스트림에서 읽어 들인 데이터를 배열에 넣는다.
+    //2. 배열의 값이 있는 방의 갯수를 저장한다.
+    //3. 값이 존재하면 
+    while((readSize = fis.read(readData)) != -1){
+    //readSize는 읽어들인 값이 저장된 배열의 데이터가 존재하는 곳까지의 갯수 저장.
+    //
+
+    //4. 스트림에 기록한다.
+    fos.write(readData , 0, readSize);
+
+    //5. 스트림을 목적지에 분출한다.
+    fos.flush();
+    }
+
+    //6. 연결 끊기
+    fos.close();
+    fis.close();
+    ```
+
+---
+## Object Stream (Marshall Stream)
+
+* instance를 JVM외부로 내보내거나, JVM외부에 존재하는 instance를 JVM내부로 읽어들일 때 사용
+
+* 모든 객체는 Stream을 타고 JVM외부로 나갈 수 없다. (Size를 알 수 없기 때문에.)
+    > 기본형 Datatype은 Stream을 타고 JVM외부로 나갈수 있다.
+
+* transient: 직렬화 방지 키워드 
+
+* 객체를 읽을 때 ObjectInputStream, 객체를 내보낼 때 ObjectOutputStream을 사용한다.
+
+* 객체가 Stream을 타고 JVM외부로 나가려면 java.io.Serializable interface를 구현해야합니다. (직렬화 하여 JVM을 나간다.)
+
+* Serializable interface를 구현한 class는 Stream을 타고 나갈 수 있게 일정크기로 쪼개진다. - 직렬화 Marshalling
+
+* 쪼개진 객체를 원래의 상태로 만드는 것. - 역직렬화 UnMarshalling
+
+### 사용법
+
+* (Marshalling code)
+
+    ```java
+    //1. 직렬화가 가능한 객체 생성
+    public class Test implements Serializable{
+        //값,,,,
+    }
+
+    //2. 객체를 내보내는 Stream 생성.(내보낼 때 어디까지 내보낼 것인지 명시)
+    ObjectOutputStream oos = new ObjectInputStream(new FileOutputStream("파일경로"));
+
+    //3. 객체를 Stream에 기록.
+    Test t = new Test();
+    oos.writeObject(t);//크기를 알수 없던 instnace가 byte단위로 쪼개져서 기록된다.
+
+    //4. Stream에 직렬화되어 저장된 객체를 목적지로 분출.
+    oos.flush();
+
+    //5. Stream의 연결을 종료합니다.
+    oos.close();
+
+* (UnMarshalling code)
+
+    ```java
+    //1.객체 스트림 사용.
+    ObjectInputStream ois = new ObjectInputStream(new FileInputStream("파일경로"));
+
+    //2.객체 읽기 -> 조각난 객체가 합쳐져서 반환된다. = 역 직렬화
+    class명 객체명 = (class명)ois.readObject();
+
+    //3.객체 사용.
+    객체명.변수명, 객체명.method명();
+    ```

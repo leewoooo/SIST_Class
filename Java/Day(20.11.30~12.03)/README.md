@@ -320,6 +320,8 @@ IO(Input / Output Stream)
 
         <img src = https://user-images.githubusercontent.com/74294325/100836249-503e1100-34b2-11eb-8e45-0830862efa55.png>
 
+
+
     ```java
     //1.생성(파일이 없을시 생성, 동일한 이름의 파일이 있을시 덮어쓴다.)
     //덮어쓰기전 물어보는 옵션은 JoptionPane을 이용하자
@@ -355,6 +357,7 @@ IO(Input / Output Stream)
 
     <img src = https://user-images.githubusercontent.com/74294325/100830318-b329ab00-34a6-11eb-9f71-78dd84a1bb60.png>
 
+<br>
 
 * code
 
@@ -420,6 +423,22 @@ IO(Input / Output Stream)
 ---
 ## Object Stream (Marshall Stream)
 
+
+* 구조
+
+    <img src = https://user-images.githubusercontent.com/74294325/100957104-34dc1000-355d-11eb-9f52-12d7f34dfd46.PNG>
+
+<br>
+
+
+* 직렬화란 객체의 상태를 영속화 하는 메커니즘(객체를 다른 환경에 저장했다가 나중에 재구성 할 수 있게 만드는 과정)
+
+* 사용용도
+
+    1. 객체의 상태를 영속해야 할 필요가 있을 때
+
+    2. 정보를 전달할 필요가 있을 때
+
 * instance를 JVM외부로 내보내거나, JVM외부에 존재하는 instance를 JVM내부로 읽어들일 때 사용
 
 * 모든 객체는 Stream을 타고 JVM외부로 나갈 수 없다. (Size를 알 수 없기 때문에.)
@@ -435,14 +454,21 @@ IO(Input / Output Stream)
 
 * 쪼개진 객체를 원래의 상태로 만드는 것. - 역직렬화 UnMarshalling
 
+
 ### 사용법
 
-* (Marshalling code)
+* Marshalling code
 
+* code
     ```java
     //1. 직렬화가 가능한 객체 생성
     public class Test implements Serializable{
         //값,,,,
+        //ex
+        private int temp;
+        private String temp; //string class는 Serializable을 구현하고있다.
+
+        private transient int temp2; //transient를 접근지정자로 지정하면 직렬화를 할 수 없다.
     }
 
     //2. 객체를 내보내는 Stream 생성.(내보낼 때 어디까지 내보낼 것인지 명시)
@@ -457,8 +483,17 @@ IO(Input / Output Stream)
 
     //5. Stream의 연결을 종료합니다.
     oos.close();
+    ```
 
-* (UnMarshalling code)
+* UnMarshalling code
+
+* 구조 
+
+    <img src = >
+
+
+
+* code
 
     ```java
     //1.객체 스트림 사용.
@@ -470,3 +505,4 @@ IO(Input / Output Stream)
     //3.객체 사용.
     객체명.변수명, 객체명.method명();
     ```
+

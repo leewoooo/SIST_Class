@@ -108,6 +108,19 @@ Map
         System.out.println("key="+key+"value="+map.get(key));
     }
     ```
-
-
 ---
+* 
+
+* Map의 getOrDefault() method 발견!
+
+    * getOrDefault() : 찾는 키가 존재하면 해당 키의 값을 반환하고, 없으면 기본 값을 반환한다.
+
+    ```java
+    String[] arr = {"a","b","c","a","b","a"};
+
+    Map<String,Integer> map = new HashMap<String, Integer>();
+    for(String key : arr){
+        map.put(key,map.getOrDefault(key,0)+1); //key가 존재하면 key의 값을 반환 없으면 0을 반환
+        //a=3,b=2,c=1
+    }
+    ```

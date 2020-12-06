@@ -92,5 +92,22 @@ Map
         map.get(ita.next()); //모든 key에 대한 값을 얻을 수 있다.
     }//while
     ```
+* 추가내용 (모든 키 얻기)
+
+    * 방법 1 (HashMap에 저장된 key-value값을 엔트리(키와 값을 결합)의 형태로 set에 저장하여 반환)
+    ```java
+    Set<Entry<String, String>> entrySet = map.entrySet();
+    for (Entry<String, String> entry : entrySet) {
+    System.out.println(String.format("키 : %s, 값 : %s", entry.getKey(), entry.getValue()));
+    }
+    ```
+
+    * 방법2 (keySet을 이용한 for문)
+    ```java
+    for (String key : map){
+        System.out.println("key="+key+"value="+map.get(key));
+    }
+    ```
+
 
 ---

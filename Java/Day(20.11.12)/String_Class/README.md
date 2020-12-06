@@ -131,3 +131,26 @@
         ```java
         String s = sb.toString();
         ```
+
+---
+
+## 추가 내용
+
+* String class의 SubString()
+
+```java
+
+String.subString(start index); //문자열을 start위치부터 문자열의 끝까지를 추출
+
+String.subString(start index, end index); //문자열을 start위치부터 end전까지 문자열 추출
+
+//ex
+String str = "ABCDEFG"
+//index A=0, B=1, C=2, D=3, E=4, F=5, G=6
+
+str.subString(3); //결과는 DEFG* 
+
+Str.subString(3,6) //결과는 DEF* 
+
+//*은 끝문자를 의미한다.
+```

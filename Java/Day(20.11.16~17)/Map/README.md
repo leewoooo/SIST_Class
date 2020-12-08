@@ -104,7 +104,7 @@ Map
 
     * 방법2 (keySet을 이용한 for문)
     ```java
-    for (String key : map){
+    for (String key : map.keyset()){
         System.out.println("key="+key+"value="+map.get(key));
     }
     ```

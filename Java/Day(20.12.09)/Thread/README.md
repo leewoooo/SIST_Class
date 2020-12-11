@@ -17,7 +17,7 @@ Thread
     * 시분할 cpu Scheduling은 thread가 cpu를 점유하는 시간을 설정하는 방식. <br>(작업관리자의 역할 중요)
 
     * 선점형 cpu Scheduling은 먼저 선점한 process가 cpu를 점유한다.<br>
-     (선점한 process가 cpu를 선점하고 그 상태가 계속 유지되면 deadlock가 발생한다.)
+     (선점한 process가 cpu(공통자원)를 선점하고 그 상태가 계속 유지되면 deadlock가 발생한다.)
 
 * Interrupt가 발생될 수 있다.
 
@@ -48,10 +48,18 @@ Thread
 
 ## Thread의 사용방법
 
+* `Thread를 사용할 때에는 Runnable을 구현하여 더 많이 사용한다.`
+
+    * `상속을 사용하면 내가 필요로 하는 다른 class를 상속 받지 못하기 때문`에 구현을 해 사용한다.
+
+    * `Interface는 하나의 class에서 여러개를 구현할 수 있다.`
+
 1. Thread class를 상속을 받아서 쓰는 방법.
 
     <img src =https://user-images.githubusercontent.com/74294325/101603835-7bd97200-3a43-11eb-91df-c0b5635105e9.png>
 
+    <br>
+    <br>
 
     ```java
     //1.Thread를 상속받는다.
@@ -76,6 +84,8 @@ Thread
 
     <img src = https://user-images.githubusercontent.com/74294325/101603988-ae836a80-3a43-11eb-962c-45b95f0971fa.png>
     
+    <br>
+    <br>
 
     ```java
     //1. Runnable Interface를 구현한다.
@@ -97,4 +107,22 @@ Thread
 
     //5.Thread class의 start()를 호출하여 run()를 호출한다.
     t.run(); //Has-A관계로 인해 Override한 run()이 호출된다.
+    ```
+
+3. Thread의 상태 변환
+
+    * 입력된 ms동안 block상태에 들어갔다가 running 상태로 돌아온다.
+
+    * sleep()는 Thread의 static method이다.
+
+    * sleep()은 InterruptedException을 throws한다.
+
+    * sleep()는 java source code 어디에서든 사용할 수 있다. (java는 thread가 기반이다.)
+
+    ```java
+    try{
+        Thread.sleep(ms); //ms의 DATATYPE은 long입니다.
+    }catch(InterruptedException e){
+
+    }// end catch
     ```

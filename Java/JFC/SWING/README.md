@@ -41,7 +41,9 @@ public class UseSwing extends JFrame {
 		//Window를 종료하자
 		//사용하지 않으면 window를 닫아도 Instance가 작동하고 있다
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
+		//추가내용
+		setLocationRelativeTo(null); //윈도우 창이 시작됬을 때 화면 정 중앙에 위치
 	
 	}//UseSing 
 	
@@ -668,3 +670,21 @@ public class UseSwing extends JFrame {
         setDefaultCloseOperator(JFrame.DISPOSE_ON_CLOSE);
         ```
 ---
+
+## 추가내용
+
+1. window창이 열렸을 때 화면 중앙에 위치시키기
+
+	```java
+	setLocationRelativeTo(null); //윈도우 창이 시작됬을 때 화면 정 중앙에 위치
+	```
+
+2. window창에 closing에 이벤트를 주기 위해 추가하는 옵션
+
+	```java
+	setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+	```
+
+	* window x버튼을 눌렀을 때 이벤트를 추가하기 위해 옵션을 사용한다.
+
+	* 여기에 windowapdater를 상속받아 closing에서 처리하자

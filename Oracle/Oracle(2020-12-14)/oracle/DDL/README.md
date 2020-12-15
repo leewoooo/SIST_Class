@@ -1,5 +1,7 @@
-테이블 생성
+DDL 
 ===
+
+## CREATE
 
 * DDL의 CREATE를 사용하여 작성한다.
 
@@ -21,9 +23,9 @@
     );
     ```
 
----
 
-## DataType (Oracle에서 지원하는 Data type)
+
+### DataType (Oracle에서 지원하는 Data type)
 
 * datatype
 
@@ -61,58 +63,51 @@
     name VARCHRT2(10) //영문자로 10자를 넣을 수 있다. 10자보다 적은 값이 들어오면 저장공간은 줄어든다.
     ```
 
----
 
-## Table의 구조알기
+### Table의 구조알기
 
 * 테이블이 어떠한 column을 가지고 있으며 column값의 속성값의 Datatype,정보를 알 수 있다.
 
     ```
     DESC "Table명"
     ```
----
-
-## 주석 (Comment)
-
-* 한 줄 주석은 -- (--뒤에만 주석이 되는 것이 아니라 --앞 내용도 주석이 된다.) 
-
-    * 되도록 한 줄 주석은 주석으로 표시되어야 할 내용만 그 줄에 표기한다.
-
-* 여러줄 주석은 /* 주석내용 */
-
-    ```
-    -- 한줄 주석의 내용.
-    한줄 주석 내용 --
-
-    /*
-    여러줄 주석
-    */
-    ```
-
----
-
-## EDIT
-
-* SQLplus에서 제공하는 편집기이다.
-
-* 사용하는 sql문을 저장하기위해 주로 사용되며 지정된 경로에 파일을 생성한다.
-
-* 사용예제
-
-    * EDIT로 SQL작성
-
-        <img src = https://user-images.githubusercontent.com/74294325/102155332-b5d0cb00-3ebe-11eb-8698-7249a32ab08a.png>
 
 
-    * 결과
-
-        <img src = https://user-images.githubusercontent.com/74294325/102155378-ce40e580-3ebe-11eb-87c2-6abc03007653.png>
-
----
-
-
-## 테이블 만들기 예제
+### 테이블 만들기 예제
 
 * ex)
 
     <img src = https://user-images.githubusercontent.com/74294325/102157680-41e4f180-3ec3-11eb-8d08-00d1acf7591c.png>
+
+
+---
+
+## DROP
+
+* DBMS의 객체(TABLE, SEQUENCE, INDEX, FUNCTION,,,)를 삭제할 때 사용.
+
+* 문법
+
+    ```
+    DROP 대상 대상명;
+    
+    //테이블을 지울때
+    DROP TABLE 테이블명; //ORACLE 11g 이후 부터 삭제된 테이블은 휴지통으로 이동
+
+    //휴지통 OPTION
+
+        //휴지통 보기 (SQLplus에서 지원하는 문법)
+        SHOW RECYCLEBIN; // 삭제 전 이름, 휴지통으로 이동된 이름의 정보가 보여진다.
+
+        //휴지통 비우기
+        PURGE RECYCLEBIN;
+
+        //복구하기 (같은 이름의 테이블이 생성되어 있다면 복구할 수 없다.)
+        FLASHBACK TABLE 테이블명 TO BEFORE DROP;
+
+* 예제
+
+    * ex)
+
+        <img src = https://user-images.githubusercontent.com/74294325/102185147-f139bc80-3ef3-11eb-969b-0b56bca2dbc2.png>
+    ```

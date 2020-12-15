@@ -119,6 +119,46 @@ DBMS ( Database Management System)
     * 한번 실행한 SQL문은 Memory에 올라가 있어서 추후 사용할 때는 HDD가 아닌 Memory에서 가져온다.
 
 
+---
+
+## EDIT
+
+* SQLplus에서 제공하는 편집기이다.
+
+* 사용하는 sql문을 저장하기위해 주로 사용되며 지정된 경로에 파일을 생성한다.
+
+* 사용예제
+
+    * EDIT로 SQL작성
+
+        <img src = https://user-images.githubusercontent.com/74294325/102155332-b5d0cb00-3ebe-11eb-8698-7249a32ab08a.png>
+
+
+    * 결과
+
+        <img src = https://user-images.githubusercontent.com/74294325/102155378-ce40e580-3ebe-11eb-87c2-6abc03007653.png>
+
+---
+
+
+## 주석 (Comment)
+
+* 한 줄 주석은 -- (--뒤에만 주석이 되는 것이 아니라 --앞 내용도 주석이 된다.) 
+
+    * 되도록 한 줄 주석은 주석으로 표시되어야 할 내용만 그 줄에 표기한다.
+
+* 여러줄 주석은 /* 주석내용 */
+
+    ```
+    -- 한줄 주석의 내용.
+    한줄 주석 내용 --
+
+    /*
+    여러줄 주석
+    */
+    ```
+---
+
 * 수업진행 순서.
 
     * DB조작,Table 생성, DATAType, insert, select, update, delete, commit, rollback, savepoint, `truncate`, drop, show, purge, flashback, `select`, function, subquery, union, constraint, alter, `join`, sequence, index, grant, revoke, view, synonym 

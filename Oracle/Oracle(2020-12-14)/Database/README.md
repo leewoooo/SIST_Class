@@ -106,6 +106,18 @@ DBMS ( Database Management System)
 
     <img src = https://user-images.githubusercontent.com/74294325/102060341-67c3b500-3e35-11eb-840a-eb8d6f2ace35.png>
 
+    * File 영역 - 영속성이 있으며 file이 실제 저장되는 공간이다.
+
+    * Server Instance - file영역을 사용하여 사용자에게 입력된 SQL문을 사용하여 접속자 세션을 관리(Memory)
+
+    * Client Process - 사용자가 DBMS가 DB SERVER에 접근하여 DBMS를 사용.
+
+    * SERVER Process - 접속자를 받고 접속자를 관리하여 Server Instance에 연결하여 사용자를 인증한다.
+
+    * 사용자가 접속하면 Sever Process가 받아서 Server Instance의 공유 풀에서 인증을 하고 File영역에 .DBF에서 사용자의 정보를 비교한 후 인증이 되면 Server Instance에 접속자 세션에서 memory가 할당된다. 그 후 Client Process에서 할당된 memory를 사용한다.
+
+    * 한번 실행한 SQL문은 Memory에 올라가 있어서 추후 사용할 때는 HDD가 아닌 Memory에서 가져온다.
+
 
 * 수업진행 순서.
 

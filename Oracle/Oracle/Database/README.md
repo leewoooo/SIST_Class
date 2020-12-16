@@ -100,7 +100,7 @@ DBMS ( Database Management System)
 
 ---
 
-## ORACLE
+# ORACLE
 
 * 간단한 오라클의 구조
 
@@ -159,6 +159,35 @@ DBMS ( Database Management System)
     ```
 ---
 
+## sqlldr.exe 
+
+* 많은 양의 데이터를 쉽게 입력할 때 사용.
+
+* Oracle에서 제공하는 Util입니다.
+
+* 데이터파일의 형식은 CSV형식으로 되어있어야 합니다. (CSV(comma-separated values)는 몇 가지 필드를 쉼표(,)로 구분한 텍스트 데이터 및 텍스트 파일)
+
+* CTL(SQL 스키마) 파일을 만들어서 데이터파일이 어떤 DB TABLE에 추가되어야 하는지 설정해야한다.
+
+* 작업순서
+
+    1. CSV파일 생성
+
+    2. 값이 추가될 테이블을 생성
+
+    3. CTL파일을 생성하여 테이블과 데이터를 연결정보 설정. <br>
+        * Oracle설치 경로에서 LoadClobs.ctl을 가져와서 csv와 동일한 이름을 수정한 후 연결정보를 설정해준다. 
+            1. INFILE에 csv파일경로를 설정한다.
+            2. FIELDS TERMINATED BY ',' ()안에 column명을 입력한다.)
+
+    4. sqlldr를 실행하여 CSV파일의 내용을 테이블에 추가.<br>
+    (dos창에서 실행하며 sqlldr control=csv파일경로)
+
+* 현재 사용하고 있는 Golden7 64bit은 tool에 data import 기능을 써서 csv가 아니더라도 데이터를 입력받을 수 있다.
+
+
+
 * 수업진행 순서.
 
     * DB조작,Table 생성, DATAType, insert, select, update, delete, commit, rollback, savepoint, `truncate`, drop, show, purge, flashback, `select`, function, subquery, union, constraint, alter, `join`, sequence, index, grant, revoke, view, synonym 
+

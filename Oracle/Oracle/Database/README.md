@@ -185,6 +185,36 @@ DBMS ( Database Management System)
 
 * 현재 사용하고 있는 Golden7 64bit은 tool에 data import 기능을 써서 csv가 아니더라도 데이터를 입력받을 수 있다.
 
+---
+
+## Dual TABEL
+
+* 가상 테이블 ( 존재하지 않으나 존재하는 것철머 사용할 수 있는 테이블)
+
+* 연습용 테이블
+
+* 같은 이름의 테이블을 생성하면 가상 dual table는 사라진다,(같은 이름의 table이 사라지면 다시 생성된다.)
+
+* 입력되는 값으로 column을 생성하고 column의 값으로 입력된 값이 들어간다.
+
+    * column과 column 값이 같기 때문에 조회할 때 Alias를 사용해서 column에 별명을 붙여준다.
+
+* 문법
+
+    ```java
+    SELECT 값,,,, FROM DUAL;
+
+    //ex
+    SELECT 'test',20 FROM DUAL;
+    ```
+
+    * 조회 되는 DUAL TABLE
+
+        | test | 20 |
+        | :--: | :--:|
+        | test | 20 |
+
+---
 
 
 * 수업진행 순서.

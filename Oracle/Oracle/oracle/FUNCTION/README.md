@@ -377,3 +377,143 @@ SELECT TO_NUMBER('486')
 FROM DUAL; //결과는 486이 조회된다.
 ```
 
+
+
+## 집계 함수
+
+* column 중 같은 값을 묶어서 하나로 만드는 함수. 하나의 레코드로 결과가 나온다.
+* GROUP BY와 같이 사용하면 그룹별 집계를 얻을 수 있다.
+* `WHERE절에서 사용할 수 없다.`
+* 종류는 SUM, COUNT, MAX, MIN 등의 함수가 제공된다.
+* `여러행이 조회되는 컬럼과 함께 사용되면 ERROR이 발생한다.
+
+
+
+### COUNT
+
+* column의 레코드의 갯수를 반환하여준다.
+* column의 값이 null값인 경우 count 되지 않는다.
+* *을 쓰면 null이 아닌 값들을 가져와 count해준다.
+
+```java
+COUTN(column 명)
+
+//EX
+SELECT COUNT( EMPNO )
+FROM EMP; //결과는 EMPNO의 레코드 값중 null을 뺀 갯수가 반환된다.    
+```
+
+
+
+### SUM
+
+* column의 값을 합쳐서 반환하는 함수
+
+```java
+SUM(column 명) //column의 값의 Datatype은 NUMBER이여야 한다.
+```
+
+
+
+### AVG
+
+* column에 존재하는 모든 레코드의 평균값을 반환하는 함수.
+
+```java
+AVG(column 명) //column의 값의 Datatype은 NUMBER이여야 한다.
+```
+
+
+
+### MAX
+
+* column에 존재하는 모든 레코드의 값 중 제일 큰 값을 반환.
+
+```java
+MAX(column 명) //column의 값의 Datatype은 NUMBER이여야 한다.
+```
+
+
+
+### MIN
+
+* column에 존재하는 모든 레코드의 값 중 제일 작은 값을 반환
+
+```java
+MIN(column 명) //column의 값의 Datatype은 NUMBER이여야 한다.
+```
+
+
+
+### GROUP BY 와 집계함수 함께쓰기
+
+* GROUP로 묶은 것에 대한 Date 처리
+
+```java
+//EX
+//사원테이블에서 부서번호,부서별 인원조회 , 부서별 연봉의 합
+SELECT DEPTNO,COUNT(ENAME),SUM(SAL)
+FROM EMP
+GROUP BY DEPTNO;
+```
+
+
+
+## 순위함수
+
+* 조회되는 column값에 순서를 부여하여 조회할 때
+* ORDER BY와 함께 사용된다. (함수 안에서 사용된다.)
+* PARTITION BY를 사용할 수 있다.
+  * PARTITION BY로 나눈 영역마다 순위를 부여한다.
+
+### RANK() OVER()
+
+* 같은 순서가 발생한다.
+
+```java
+RANK()OVER(OREDER BY 정렬할 column명)
+```
+
+### ROW_NUMBER() OVER()
+
+* 같은 순서가 발생하지 않는다.
+* 주로 ROW_NUMBER()OVER()을 사용하여 순위를 구한다.
+
+```java
+ROWNUMBER()OVER(OREDER BY 정렬할 column명)
+```
+
+
+
+## 날짜함수
+
+
+
+### ADD_MOUTHS
+
+* 날짜에 월을 더할 때 사용.
+
+```java
+ADD_MONTHS(날짜,더할 개월 수)
+```
+
+
+
+### MONTHS_BETWEEN()
+
+* 두 날짜간 개월의 차이
+
+```java
+MONTHS_BETWWEN(날짜1,날짜2) // 두 날짜간 개월의 차이(앞 날짜에 큰 날짜, 뒷 날짜에 작은날짜) //사용은 마지막 로그인 기록과 현재로그인 기록을 비교할 때 등등...
+```
+
+
+
+### LAST_DAY()
+
+* 마지막 날을 구할 수 있는 함수.
+
+```java
+LAST_DAY(날짜) //입력한 날짜에 대해 그 달의 마지막 날짜를 알 수있다.
+```
+

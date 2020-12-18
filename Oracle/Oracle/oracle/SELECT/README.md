@@ -183,7 +183,11 @@ FROM TABLE명
 GROUP BY GROUP으로 묶일 column명,,,,,,
 ```
 
+### HAVING
 
+* GROUP BY를 사용할때 같이 사용되며 묶인 GROUP가 조회될 때 조건을 부여할 수있다.
+
+* HAVING절에서 집계함수를 이용하여 GROUP BY의 조건을 부여한다.
 
 
 

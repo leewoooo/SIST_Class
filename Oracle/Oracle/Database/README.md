@@ -217,6 +217,32 @@ DBMS ( Database Management System)
 ---
 
 
+## ROWNUMBER
+
+* 조회하는 column에 번호를 부여하는 가상column(pseudo column)
+
+* order by 전에 번호가 부여되기 때문에, 정렬하면 번호가 섞인다.
+
+* where절에서 조건에 사용하면 1번에서 부터 시작하는 조회는 조회만 조회가 된다.
+
+* SELECT 마다 별개로 사용된다.
+
+* 문법
+
+    ```java
+    SELECT column, rownum
+
+    //ex
+    SELECT ROWNUM,EMPNO,ENAME
+    FROM EMP;
+
+    //ex
+    //rownum은 select마다 생성되고 사용된다.
+    //sub query의 rownum을 이용하려면 alias를 이용한다.
+    SELECT ROWNUM, EMPNO,ENAME,JOB
+    FROM (SELECT ROWNUM, EMPNO , ENAME, JOB FROM EMP)
+    ```
+
 * 수업진행 순서.
 
     * DB조작,Table 생성, DATAType, insert, select, update, delete, commit, rollback, savepoint, `truncate`, drop, show, purge, flashback, `select`, function, subquery, union, constraint, alter, `join`, sequence, index, grant, revoke, view, synonym 

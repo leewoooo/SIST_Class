@@ -126,3 +126,53 @@ WHERE EMPNO = (
 				WHERE ENAME = 'SCOTT');
 ```
 
+---
+
+## SELECT SUBQUERY
+
+* 단수행과 복수행 모두 사용이 가능하다.
+* scalar subuqery: 조회하는 column에 사용하는 subquery
+
+```java
+//단수행
+SELECT column,,,,
+FROM 테이블명
+WHERE column=(SELECT,,,,,) //in을 쓰는경우 복수형 가능.
+
+//EX
+//사원테이블에서 평균 연봉 보다 많이 받는 사원의 사원번호, 사원명
+//입사일, 연봉을 조회하세요.
+
+SELECT EMPNO, ENAME, HIREDATE, SAL
+FROM EMP
+WHERE SAL > (SELECT AVG(SAL) FROM EMP);    
+     
+//복수행 : 조회한 결과를 가지고 재 조회할 때, 많은양의 레코드에서 일부분의 레코드만 조회할 때(ex 게시판에서 리스트를 만들 때, 목록을 만들 때)
+//바깥 SELECT column명 은 실제 table의 column명이 아니고 liline view column명이 된다.
+//바깥 SELECT에서 사용하는 column명은 조회결과에서 나오는 column명만 사용가능
+SELECT column명,,,,
+FROM (SELECT,,,,)
+
+//ex
+SELECT EMPNO, ENAME, SAL, HIREDATE
+FROM (SELECT EMPNO, ENAME, SAL, HIREDATE FROM EMP);
+
+//안쪽 query에서 column명에 alias가 부여되면 바깥 query에서는 alias로만 사용가능
+SELECT EMPNO, ENAME, SAL, H
+FROM (SELECT EMPNO, ENAME, SAL, HIREDATE H FROM EMP);    
+    
+//scalar subuqery : 조회column에 정의하는 subquery, 바깥 query가 실행한 column값을 가지고 재 조회를 한다. 부분실행 x
+SELECT column, (SELECT column명 FROM 테이블명 WHERE column = column),,
+FROM 테이블명
+
+//ex
+//scalra subquery (단수행): 조회하는 column에 사용.
+//안쪽 query의 column명과 바깥 query의 column명이 같다면 "테이블 명.column의 문법으로 column을 식별하여 사용
+
+//사원번호,사원명,부서번호,부서명(DEPT table에 존재)을 조회
+SELECT EMPNO, ENAME, DEPTNO, 
+(SELECT DNAME FROM DEPT WHERE DEPT.DEPTNO = EMP.DEPTNO) DNAME
+FROM EMP;    
+ 
+```
+

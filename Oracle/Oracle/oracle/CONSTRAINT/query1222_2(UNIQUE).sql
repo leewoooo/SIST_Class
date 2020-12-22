@@ -1,0 +1,53 @@
+--column단위
+
+CREATE TABLE UNIQUE_COLUMN(
+NAME VARCHAR2(30),
+AGE NUMBER(3),
+EMAIL VARCHAR2(50) CONSTRAINT UK_EMAIL UNIQUE,
+ADDR VARCHAR2(100)
+);
+
+SELECT * FROM USER_CONSTRAINTS;
+
+DROP TABLE UNIQUE_COLUMN;
+
+PURGE RECYCLEBIN;
+
+--table단위
+
+CREATE TABLE UNIQUE_TABLE(
+NAME VARCHAR2(15),
+PHONE VARCHAR2(14),
+CONSTRAINT UK_PHONE UNIQUE(PHONE)
+);
+
+SELECT * FROM USER_CONSTRAINTS;
+
+
+--성공
+--최초 데이터가 입력되는 경우
+INSERT INTO UNIQUE_COLUMN(NAME, AGE, EMAIL, ADDR)
+VALUES
+('이우길',25,'lee@test.com','서울시 마포구');
+
+select * from UNIQUE_COLUMN;
+
+--unique 가 설정된 column의 값이 다를때
+INSERT INTO UNIQUE_COLUMN(NAME, AGE, EMAIL, ADDR)
+VALUES
+('이우길',25,'lee2@test.com','서울시 마포구');
+
+
+--null이 입력되는 경우
+INSERT INTO UNIQUE_COLUMN(NAME, AGE, EMAIL, ADDR)
+VALUES
+('이우길',25,'','서울시 마포구');
+
+select * from UNIQUE_COLUMN;
+
+
+--실패
+--값이 중복 되어서 입력되었을 경우
+INSERT INTO UNIQUE_COLUMN(NAME, AGE, EMAIL, ADDR)
+VALUES
+('이우길',25,'lee2@test.com','서울시 마포구');

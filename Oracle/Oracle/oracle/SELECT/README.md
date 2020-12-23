@@ -6,6 +6,18 @@
 
 * SELECT의 query문을 사용하여 만들어진 view를 Inline View라고 한다.
 
+  * Inline View에는 Alias가 적용되지 않는다.
+
+* SELECT문에서 SUBQUERY로 여러 SELECT문이 겹쳐 있다면 사용자에게 보여주는 함수는 가장 바깥 SELECT문에 적용한다.
+  ```
+  SELECT 사용자에게 보여주는 함수의 위치 
+    SELECT(
+      SELECT(
+
+      )
+    );
+  ```
+
   
 
 ## SELECT의 문법

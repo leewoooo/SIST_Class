@@ -175,4 +175,29 @@ SELECT EMPNO, ENAME, DEPTNO,
 FROM EMP;    
  
 ```
+---
+## EXISTS
 
+* Subquery에서 조회 결과가 없을 때 바깥 Subquery의 실행을 막는 역할을 한다.
+* WHERE절에서 EXISTS 함수를 사용하면 조회 결과가 있을 경우에만 외부 query가 실행된다.
+* `조회 query의 결과는  사용 되지 않고 존재 여부만 확인하여 바깥query의 실행 여부를 결정한다`
+
+```java
+SELCRT column명
+FROM 테이블 명
+WHERE EXISTS(조회query) //조회query의 결과가 존재할 때 바깥 query를 실행
+    
+//EX
+//직무,연봉합,조회시점의 날짜로 추가
+//1981에 입사한 사원이 존재한다면 정산잡업을 수행
+//그렇지 않다면 정산 작업을 수행하지 않는다.
+INSERT INTO DEPT_ACCOUNT
+		(DEPTNO,JOB,SAL_TOTAL,INPUT_DATE)
+		(
+		SELECT DEPTNO,JOB,SUM(SAL),SYSDATE
+		FROM EMP
+		WHERE EXISTS(SELECT EMPNO FROM EMP WHERE TO_CHAR(HIREDATE,'yyyy')='1981')
+		AND DEPTNO = 10 AND TO_CHAR(HIREDATE,'yyyy')='1981'
+		GROUP BY DEPTNO,JOB
+		);
+```

@@ -517,3 +517,35 @@ MONTHS_BETWWEN(날짜1,날짜2) // 두 날짜간 개월의 차이(앞 날짜에 
 LAST_DAY(날짜) //입력한 날짜에 대해 그 달의 마지막 날짜를 알 수있다.
 ```
 
+
+
+---
+
+### ROWNUMBER
+
+* 조회하는 column에 번호를 부여하는 가상column(pseudo column)
+
+* order by 전에 번호가 부여되기 때문에, 정렬하면 번호가 섞인다.
+
+* where절에서 조건에 사용하면 1번에서 부터 시작하는 조회는 조회만 조회가 된다.
+
+* SELECT 마다 별개로 사용된다.
+
+```java
+SELECT column, rownum
+
+//ex
+SELECT ROWNUM,EMPNO,ENAME
+FROM EMP;
+
+//ex
+//rownum은 select마다 생성되고 사용된다.
+//sub query의 rownum을 이용하려면 alias를 이용한다.
+
+SELECT ROWNUM, EMPNO,ENAME,JOB
+FROM (SELECT ROWNUM, EMPNO , ENAME, JOB FROM EMP)
+```
+
+  
+
+ 

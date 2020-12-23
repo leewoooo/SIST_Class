@@ -11,7 +11,7 @@ DDL
 
 * 문법
 
-    ```
+    ```java
     CREATE TABLE "테이블명" (
         "column명" Datatype(크기) constraint "제약사항명 제약사항"
         "column명" Datatype(크기) constraint "제약사항명 제약사항"
@@ -22,8 +22,6 @@ DDL
         ,
     );
     ```
-
-
 
 ### DataType (Oracle에서 지원하는 Data type)
 
@@ -43,20 +41,22 @@ DDL
     <BR>
 
     * 고정길이형 : 최초 설정한 크기를 유지하는 데이터 형. 
-        
+      
         * 검색속도가 빠르다. (검색의 key로 사용한다. 기본키(primary key)로 설정하여 사용하게된다.)
         * 값이 설정한 크기보다 적게 입력되더라도 최초 설정된 크기를 유지하기에 저장공간의 낭비로 이어질 수 있다.
 
 
-    * 가변길이형 : 최초 설정한 크기를 유지하지 않는 데이터 형.
+```java
+* 가변길이형 : 최초 설정한 크기를 유지하지 않는 데이터 형.
 
-        * 검색속도가 느리다.
-        * 값이 설정한 크기보다 적게 입력되면 저장공간의 크기가 줄어든다. (저장공간의 낭비는 일어나지 않는다.)
-        * 값이 설정한 크기보다 적게 입력되면 저장공간의 크기는 줄어들지만 큰 값이 들어오면 error 
+    * 검색속도가 느리다.
+    * 값이 설정한 크기보다 적게 입력되면 저장공간의 크기가 줄어든다. (저장공간의 낭비는 일어나지 않는다.)
+    * 값이 설정한 크기보다 적게 입력되면 저장공간의 크기는 줄어들지만 큰 값이 들어오면 error 
+```
 
 * ex)
-    
-    ```
+  
+    ```java
     age NUMBER(3) // 0~999
     height NUMBER(4,1) //0~999.9 총 4자리 중 정수 3자리 실수 1자리
     name CHAR(10) //영문자로 10자를 넣을 수 있다.
@@ -88,26 +88,150 @@ DDL
 
 * 문법
 
-    ```
+    ```java
     DROP 대상 대상명;
     
     //테이블을 지울때
     DROP TABLE 테이블명; //ORACLE 11g 이후 부터 삭제된 테이블은 휴지통으로 이동
-
+    
     //휴지통 OPTION
-
+    
         //휴지통 보기 (SQLplus에서 지원하는 문법)
         SHOW RECYCLEBIN; // 삭제 전 이름, 휴지통으로 이동된 이름의 정보가 보여진다.
-
+    
         //휴지통 비우기
         PURGE RECYCLEBIN;
-
+    
         //복구하기 (같은 이름의 테이블이 생성되어 있다면 복구할 수 없다.)
         FLASHBACK TABLE 테이블명 TO BEFORE DROP;
+    ```
 
 * 예제
 
     * ex)
 
         <img src = https://user-images.githubusercontent.com/74294325/102185147-f139bc80-3ef3-11eb-969b-0b56bca2dbc2.png>
-    ```
+
+
+
+## ALTER
+
+* 테이블의 조작, 계정처리, 제약사항을 처리할 수 있다.
+
+---
+
+### 테이블의 조작
+
+* column의 Datatype을 변경 ( 레코드가 존재하지 않으면 Datatype까지 변경 가능, 레코드가 존재하면 Datatype는 바꾸지 못하고 크기만 변경이 가능하다.)
+
+```java
+ALTER TABLE 테이블 명 MODIFY column명 Datatype(크기) column단위 제약사항을 추가할 수 있다.
+```
+
+* column의 추가 (추가되는 column은 `제일 마지막에만 추가 가능하다.`)
+
+```java
+ALTER TABLE 테이블 명 ADD column명 Datatype(크기) column단위 제약사항을 추가할 수 있다.
+```
+
+* column의 삭제 (column의 값들과 제약사항이 전부 지워진다.)
+
+```java
+ALTER TABLE 테이블 명 DROP COLUMN column명
+```
+
+* column명 변경
+
+```java
+ALTER TABLE 테이블 명 RENAME COLUMN 이전 column명 TO 바꿀 column명
+```
+
+
+
+### 제약사항 설정
+
+* 제약사항 추가 (테이블 단위 제약사항의 문법을 사용하여 처리)
+
+```java
+ALTER TABLE 테이블명 ADD CONSTRAINT 제약사항명 제약사항(적용 column명);
+```
+
+* 제약사항 삭제 
+
+```java
+ALTER TABLE 테이블명 DROP CONSTRAINT 제약사항명;
+```
+
+* 제약사항 활성화(비 활성화)
+
+```java
+//비 활성화 후 활성화는 column의 값이 제약사항에 위배되는 값이 없어야만 가능하다.
+ALTER TABLE 테이블명 ENABLE CONSTRAINT 제약사항명 //활성화
+ALTER TABLE 테이블명 DISABLE CONSTRAINT 제약사항명 //비활성화
+```
+
+
+
+### 계정 관리
+
+* 관리자 계정에서만 가능하다.
+* 계정 생성 ( 생성된 계정은 접속 및 DBMS의 서비스를 사용할 수 없다.)
+  * Oracle 12c 부터는 계정명 앞에 c##형태로 시작해야한다.
+
+```java
+//c##형식의 계정을 사용하지 않으려면 "_ORACLE_SCRIPT"를 활성화
+ALTER SESSION SET "_ORACLE_SCRIPT"=true;
+//계정 생성
+CREATE USER 계정 명 IDENTIFIED BY 비밀번호; //생성된 계정은 아무 권한을 가지고 있지 않기에 로그인 불가.
+```
+
+* 계정에 권한 부여 (GRANT : DCL)
+  * Oracle 12c부터는 resource 권한 이후에 tablespace 사용권한을 ALTER로 변경해야 한다.
+
+```java
+//CONNECT - 접속 권한
+//RESOURCE - DBMS를 사용할 수 있는 권한
+//DBA - 관리자 권한
+//CREATE VIEW - VIEW 생성 권한 ,,,,등 여러가지가 있다
+
+GRANT 권한,,,,,TO 계정;
+
+//tablespqce
+ALTER USER 계정명 DEFAULT TABLESPACE TABLESPACE명 QUOTA UNLIMTED ON TABLESPACE명
+```
+
+* 계정에 부여한 권한 회수(REVOKE : DCL)
+  * 관리자 계정에서만 가능하다.
+  * 12c 부터는 계정을 삭제하려면 "_ORACLE_SCRIPT"를 사용해야한다.
+
+```java
+REVOKE 권한,,,,,FROM 계정;
+```
+
+* 계정의 비밀번호 변경
+  * 비밀번호를 변경하면 계정 파기 시간이 늘어난다.
+  * 관리자 계정의 다른 계정의 비밀번호를 변경할 수 있다.
+
+```java
+ALTER USER 계정명 INDETIFIED BY 비밀번호; //관리자가 아니어도 모든 계정이 비밀번호 변경 가능
+```
+
+* 계정의 활성화 (비 활성화)
+  * 계정 풀기 | 계정 잠구기
+
+```java
+ALTER USER 계정명 ACCOUNT LOCK //잠금
+ALTER USER 계정명 ACCOUNT UNLOCK //풀기
+```
+
+* 계정 삭제
+  * 계정 정보는 DBA_USERS에서 확인이 가능하다.
+  * 접속중인 계정은 삭제할 수 없다. 접속이 종료된 계정만 삭제 가능
+  * 12c 부터는 계정을 삭제하려면 "_ORACLE_SCRIPT"를 사용해야한다.
+  * 계정이 생성한 Oracle Object이 있다면 CASCADE 옵션을 사용하여 삭제(Object이 있으면 CASCADE옵션 없이 삭제 불가능)
+
+```java
+ALTER SESSION SET "_ORACLE_SCRIPT"=true;
+DROP USER 계정명 CASCADE;
+```
+

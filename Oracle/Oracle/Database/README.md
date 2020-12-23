@@ -217,33 +217,43 @@ DBMS ( Database Management System)
 ---
 
 
-## ROWNUMBER
+## Oracle 백업 및 복구
 
-* 조회하는 column에 번호를 부여하는 가상column(pseudo column)
+* 백업은 exe.exe 사용
+    
+    * 모든 계정은 백업을 수행할 수 있다.
 
-* order by 전에 번호가 부여되기 때문에, 정렬하면 번호가 섞인다.
+    * 백업파일의 확장자는 ".dmp"로 설정한다.
 
-* where절에서 조건에 사용하면 1번에서 부터 시작하는 조회는 조회만 조회가 된다.
+    * DOS창에서 수행 
 
-* SELECT 마다 별개로 사용된다.
-
-* 문법
-
+    * userid를 입력하지 않고 명령하면 사용자를 물어본다.
     ```java
-    SELECT column, rownum
-
-    //ex
-    SELECT ROWNUM,EMPNO,ENAME
-    FROM EMP;
-
-    //ex
-    //rownum은 select마다 생성되고 사용된다.
-    //sub query의 rownum을 이용하려면 alias를 이용한다.
-    SELECT ROWNUM, EMPNO,ENAME,JOB
-    FROM (SELECT ROWNUM, EMPNO , ENAME, JOB FROM EMP)
+    도움말 보기 : exp help=y
+    //테이블만 백업
+    exp userid=아이디/비밀번호 tables=백업할 테이블,,,, file=백업파일의 경로
+    //모든 Object을 백업
+    exp userid=아이디/비밀번호 full=y file=백업파일의 경로
     ```
+
+* 복구는 imp.exe 사용
+
+    * 모든 계정은 복구를 수행할 수 있다.
+
+    * 같은 이름의 객체가 존재한다면 해당 객체는 복구되지 않는다.
+
+    * DOS창에서 수행 
+    ```java
+    도움말 보기 : imp help=y
+    //테이블만 복구
+    imp userid=아이디/비밀번호 tables=복구할테이블,,,,,file=복구할 파일의 경로
+    //모든 Object 복구
+    imp userid=아이디/비밀번호 full=y file=복구할 파일의 경로
+    ```
+
+
+---
 
 * 수업진행 순서.
 
     * DB조작,Table 생성, DATAType, insert, select, update, delete, commit, rollback, savepoint, `truncate`, drop, show, purge, flashback, `select`, function, subquery, union, constraint, alter, `join`, sequence, index, grant, revoke, view, synonym 
-

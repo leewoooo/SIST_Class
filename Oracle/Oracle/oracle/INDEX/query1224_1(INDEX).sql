@@ -18,6 +18,16 @@ WHERE EMPNO = '7902';
 --INDEX 삭제
 DROP INDEX IDX_CP_EMP4;
 
+CREATE INDEX IDX_ZIPCODE ON ZIPCODE(GUGUN);
+
 --인덱스를 사용하여 정렬의 효과를 얻을 때
---column을 INDEX로 부여하고 검색조건에 "column>0"를 사용하면 
+--column을 INDEX로 부여하고 검색조건에 "column>0"를 사용하면
 --index를 사용한 정렬 수행
+SELECT * FROM ZIPCODE
+WHERE GUGUN >'0';
+
+
+CREATE UNIQUE INDEX IDX_EMP ON EMP(ENAME);
+
+SELECT ENAME,EMPNO FROM EMP
+WHERE ENAME>'0';

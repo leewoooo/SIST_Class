@@ -11,12 +11,11 @@
 * SEQUENCE 생성
 
 ```java
-
 CREATE SEQUENCE 	SEQUENCE명
-INCREMENT BY 		증가하는 수
-START WITH 			시작 수
-MAXVALUE 			끝 값
-CACHE				메모리에 올려 놓을 수 //작성하지 않으면 DEAFULT값은 20개이다. 메모리에 먼저 올려놓고 소진되기 전까지는 HDD 접근을 하지 않음.
+INCREMENT BY 		  증가하는 수
+START WITH 			  시작 수
+MAXVALUE 			    끝 값
+CACHE			      	메모리에 올려 놓을 수 //작성하지 않으면 DEAFULT값은 20개이다. 메모리에 먼저 올려놓고 소진되기 전까지는 HDD 접근을 하지 않음.
 CYCLE | NOCYCLE 	반복여부 //작성하지 않으면 DEFAULT값은 NOCYCLE이다.
 ```
 

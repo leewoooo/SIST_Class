@@ -1,0 +1,11 @@
+CP_EMP3테이블에 insert, update, delete 작업을 Statement 객체를 사용하여 수행 
+
+insert : 사원번호 : 2222, 사원명 : 이우길, 입사일 : 현재날짜, 부서번호 :20, 직무:사원, 
+           연봉 : 3000
+
+update : 2222사원번호에 해당하는 레코드의 부서번호를 : 50번, 직무 : 주임, 연봉: 3200
+으로 변경.
+
+delete : 2222사원번호에 해당하는 레코드를 삭제.
+
+String sql="insert into cp_emp3()values(,,, sysdate,   )";

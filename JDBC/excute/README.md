@@ -58,3 +58,27 @@ while(rs.next()){ //조회된 레코드가 몇개가 있는지 알 수 없기 �
   int deptno = rs.getint(DEPTNO); 
   String dname = rs.getString(DNAME);
 }
+```
+
+## 날짜 조회하는 방법
+
+* 방법1
+
+  * SQL문을 작성할 때 TO_CHAR를 사용하여 날짜를 String형식으로 만들어서 java로 가져온다.
+
+* 방법2
+
+  * Date class (sql package에서 제공하는) import받아서 객체를 생성한 다음 조회한 날짜를 넣어준다.
+
+  * SimpleDateformat을 이용하여 pattern을 만들어 사용할 수 있다.
+
+## Null 조회
+
+* 방법1
+
+  * SQL문 작성시 NVL 함수를 사용하여 NULL의 값을 변경하여 java로 가져온다.
+
+* 방법2
+
+  * Oracle에서 조회된 Null을 java에서 조건문으로 처리해준다.
+

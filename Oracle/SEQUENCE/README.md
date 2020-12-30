@@ -8,15 +8,25 @@
   * CURRVAL은 메모리에 올라와있는 SEQUENCE의 현재값을 얻는 일만 수행
 * query문이 실패한다면 번호가 사라진다.
 
-* SEQUENCE 생성
+## SEQUENCE 생성
 
 ```java
-CREATE SEQUENCE 	SEQUENCE명
-INCREMENT BY 		  증가하는 수
-START WITH 			  시작 수
-MAXVALUE 			    끝 값
-CACHE			      	메모리에 올려 놓을 수 //작성하지 않으면 DEAFULT값은 20개이다. 메모리에 먼저 올려놓고 소진되기 전까지는 HDD 접근을 하지 않음.
+CREATE SEQUENCE SEQUENCE명
+INCREMENT BY 증가하는 수
+START WITH 시작 수
+MAXVALUE 끝 값
+CACHE 메모리에 올려 놓을 수 //작성하지 않으면 DEAFULT값은 20개이다. 메모리에 먼저 올려놓고 소진되기 전까지는 HDD 접근을 하지 않음.
 CYCLE | NOCYCLE 	반복여부 //작성하지 않으면 DEFAULT값은 NOCYCLE이다.
+```
+
+## SEQUENCE 수정
+```java
+ALTER SEQUENCE SEQUENCE명
+INCREMENT BY 증가하는 수
+START WITH 시작 수
+MAXVALUE 끝 값
+CACHE | NOCACHE 메모리에 올려 놓을 수
+CYCLE | NOCYCLE 	반복여부 
 ```
 
 * 번호얻기

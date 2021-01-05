@@ -257,3 +257,63 @@ EX)
 * 작업이 정상적으로 완료 후 commit를 하게되면 모든 사용자 session에서 변경내용을 확인 할 수 있다.<br>
 (임시 테이블 스페이스에서 작업되었던 것을 적용)
 ---
+
+### 트랜잭션 추가내용(2021-01-05)
+
+* 트랜잭션의 4가지 특성
+
+1. 원자성(Atomicity)
+
+    * 트랜잭션에 포함된 명령들은 모두 수행되거나, 모두 수행 안되어야 한다. 즉 어느 것은 실행되고 어느것은 실행되지 않으면 안된다.
+
+2. 일관성(Consistency)
+
+    * 트랜잭션이 완료된 뒤에는 일관적인 상태에 있어야 한다. 트랜잭션의 영향이 한 방향으로만 전달되어야 한다.
+
+3. 독립성(Isolation)
+
+    * 각 트랜잭션은 다른 트랜잭션과 독립적으로 수행되는 것 처럼 보여야 한다. 트랜잭션의 부분상태를 다른 트랜잭션에게 제공해서는 않된다.
+
+4. 영속성(Durability)
+
+    * 성공적으로 수행된 트랜잭션의 결과는 db에 전달되어야 하며 지속성이 있어야 한다.
+
+### JAva의 Transaction 처리
+
+* java.sql.Connection은 autocommit이 되어있어 query문 하나당 Transaction을 완료한다.
+
+* Transaction처리는 method 밖에서 수행
+
+* Connection이 instance 변수로 올라간다.
+
+* 호출하는 곳에서 제어를 수행한다.
+
+* **0~2번까지는 DAO안에서 3~4번은 호출한 곳에서 처리**
+
+0. Connection이 instance영역에 선언된다.
+```java
+Connection con = ,,,;
+```
+
+1. autocommit 해제
+```java
+con.setAutoCommit(false);
+```
+
+2. query를 수행하고 행의 수를 받는다.
+```java
+int cnt = pstmt.executeUpdate();
+
+int cnt1 = pstmt.excuteUpdate();
+```
+
+3. 목표로 한 행의 수가 나왔는지 체크한다. (호출한 곳에서 finally에서 체크 후 commit)
+```java
+if (totalCnt == 수행되어야할 행의 수){
+    con.commit(); //트랜잭션완료
+}else{
+    con.rollback;
+}
+```
+
+4. **호출하는 곳에서 Connection을 끊는다.**

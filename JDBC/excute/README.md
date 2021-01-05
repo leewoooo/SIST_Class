@@ -25,7 +25,7 @@ try{
 
 # excuteQuery(), ResultSet
 
-* ResulSet은 executeQuery( ) 메소드에서 실행된 select 문의 결과값을 가지고 있는 객체.
+* ResultSet은 executeQuery( ) 메소드에서 실행된 select 문의 결과값을 가지고 있는 객체.
 
 * query문으로 조회하면 InlineView가 생성되고 ResultSet은 cursor의 제어권을 받는다.
 
@@ -60,6 +60,35 @@ while(rs.next()){ //조회된 레코드가 몇개가 있는지 알 수 없기 �
 }
 ```
 
+# EXCUTE
+
+* 수행결과를 Boolean 타입의 값을 반환한다.
+
+* 모든 query문을 수행할 수 있다.
+
+* EXCUTE는 리턴값이 ResultSet일 경우(SELECT문)에만 ture값을 반환, 이 외의 경우는 false값을 반환 <br>
+(return값이 ResultSet일 때 trun를 반환한다는 것이지 ResultSet을 쓸 수 있다는 것은 아니다.)
+
+* 예제
+
+```java
+PreparedStatement pstmt = con.prepareStatement("INSERT INTO SAMPLE_TABLE VALUES (?, ?)");
+pstmt.setInt(1, 200);
+pstmt.setString(2, "Jerry");
+
+boolean result = pstmt.execute();
+System.out.println("Result : " + result); //result 값은 false;
+
+pstmt = con.prepareStatement("SELECT ID, NAME FROM SAMPLE_TABLE");
+boolean result2 = pstmt.execute();
+System.out.println("Result2 : " + result2); //result2값은 true
+```
+
+* 반환형은 boolean을 사용하지 않을 경우 ERROR발생
+```java
+error: incompatible types: boolean cannot be converted to ResultSet
+```
+
 ## 날짜 조회하는 방법
 
 * 방법1
@@ -81,4 +110,5 @@ while(rs.next()){ //조회된 레코드가 몇개가 있는지 알 수 없기 �
 * 방법2
 
   * Oracle에서 조회된 Null을 java에서 조건문으로 처리해준다.
+
 

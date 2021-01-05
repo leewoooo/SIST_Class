@@ -12,6 +12,8 @@
 
 - SIST강의 중 ORACLE강의가 끝났기에 찾아 보기 쉽게 파일의 구조를 변경(2020-12-24) 
 
+- SIST강의 중 JDBC강의가 끝났기에 찾아 보기 쉽게 파일의 구조를 변경 (2021-01-05)
+
     * 추후 기능을 찾아보기 편하게 하기 위해서 입니다.
 
 
@@ -53,6 +55,32 @@
 * [Annotation](https://github.com/LeeWoooo/SIST_Class/tree/master/Java/Annotation)
 * [JFC](https://github.com/LeeWoooo/SIST_Class/tree/master/Java/JFC)
 
+<br>
+
+### :coffee: JDBC
+
+* [JDBC란 & 기본적인 구조](https://github.com/LeeWoooo/SIST_Class/tree/master/JDBC/JDBC)
+
+* [Statement](https://github.com/LeeWoooo/SIST_Class/tree/master/JDBC/Statement)
+
+* [preparedStatement](https://github.com/LeeWoooo/SIST_Class/tree/master/JDBC/PreparedStatement)
+
+* [Procedure & CallableStatement](https://github.com/LeeWoooo/SIST_Class/tree/master/JDBC/CallableStatement)
+
+    * [CallableStatement(SELECT)](https://github.com/LeeWoooo/SIST_Class/tree/master/JDBC/CallableStatement(SELECT))
+
+* [ResultSetMetaData](https://github.com/LeeWoooo/SIST_Class/tree/master/JDBC/ResultSetMetaData)
+
+* [Excute,ExcuteQuery,ExcuteUpdate](https://github.com/LeeWoooo/SIST_Class/tree/master/JDBC/excute)
+
+* [SQL_Injection](https://github.com/LeeWoooo/SIST_Class/tree/master/JDBC/SQL_Injection)
+
+* [Singleton](https://github.com/LeeWoooo/SIST_Class/tree/master/JDBC/Singleton)
+
+* [CLOB](https://github.com/LeeWoooo/SIST_Class/tree/master/JDBC/CLOB(Character%20Large%20Object))
+
+<br>
+
 ## :computer: DATABASE  
 
 ### :file_folder: ORACLE
@@ -61,11 +89,12 @@
 * [오라클 계정 생성](https://github.com/LeeWoooo/SIST_Class/tree/master/Oracle/CREATE_ACCOUNT)
 * [DB의 CRUD](https://github.com/LeeWoooo/SIST_Class/tree/master/Oracle/CRUD)
 * [DDL](https://github.com/LeeWoooo/SIST_Class/tree/master/Oracle/DDL)
-* [DML](https://github.com/LeeWoooo/SIST_Class/tree/master/Oracle/DML)
+* [DML , TRANSACTION](https://github.com/LeeWoooo/SIST_Class/tree/master/Oracle/DML)
 * [SELECT](https://github.com/LeeWoooo/SIST_Class/tree/master/Oracle/SELECT)
 * [FUNCTION](https://github.com/LeeWoooo/SIST_Class/tree/master/Oracle/FUNCTION)
 * [SUBQUERY](https://github.com/LeeWoooo/SIST_Class/tree/master/Oracle/SUBQUERY)
 * [UNION](https://github.com/LeeWoooo/SIST_Class/tree/master/Oracle/UNION)
+* [JOIN](https://github.com/LeeWoooo/SIST_Class/tree/master/Oracle/JOIN)
 * [CONSTRAINT](https://github.com/LeeWoooo/SIST_Class/tree/master/Oracle/CONSTRAINT)
 * [SEQUENCE](https://github.com/LeeWoooo/SIST_Class/tree/master/Oracle/SEQUENCE)
 * [INDEX](https://github.com/LeeWoooo/SIST_Class/tree/master/Oracle/INDEX)

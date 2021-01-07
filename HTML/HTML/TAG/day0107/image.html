@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이미지 및 경로</title>
+</head>
+<body>
+	
+	
+	<!-- 상대경로  -->
+	<img src = ./google.png> <!-- 현재 사용되는 HTML의 문서를 기준으로 같은 디렉토리에 존재할 때. -->
+	
+	<img src = ./images/daum.png> <!-- 현재 사용되는 HTML의 문서를 기준으로 하위 폴더에 있을 때 -->
+	
+	<img src = ../common/images/google.png><!-- 현재 사용되는 HTML의 문서를 기준으로 부모 디렉토리에 위치할 때 -->
+		
+	<!-- URL  -->
+	
+	<img src = "http://localhost/html_prj/common/images/daum.png"/>
+		
+		
+	<!-- 속성의 사용  -->
+	넓이,높이
+	<img src = "http://localhost/html_prj/common/images/daum.png" width="300" height="400"/>
+	
+	타이틀
+	<img src = "http://localhost/html_prj/common/images/daum.png" title="다음"/>
+
+	대체 text
+	<img src = "http://localhost/html_prj/common/images/da"  alt="다음"/>
+</body>
+</html>

@@ -427,11 +427,11 @@ Hi:)
 
 * 문법
     ```html
-    <iframe id="id값" name="frame의 이름" src="URL" scrolling="스크롤바의허용여부">
+    <iframe name="frame의 이름" src="URL" scrolling="스크롤바의허용여부">
     iframe을 지원하지 않는 URL일 경우 대체 정보를 제공
     </iframe>
     ```
-    * id,name : frame의 id와 이름을 지정
+    * name : frame의 이름을 지정
     * src : 불러올 페이지의 URL
     * scrolling : 스크롤 바의 허용여부
 
@@ -442,6 +442,8 @@ Hi:)
     * 추가로 width, heigth, framebolder를 지정할 수 있지만 대부분 css에서 관리
 
     * youtube를 삽입하거나 facebook의 좋아요 버튼, 등을 가져와서 특정부분만 보여줄 수 있다.
+
+    * a 태그에서 target을 iframe의 이름으로 잡게되면 링크로 연결된 HTML이 iframe에 표시된다. 
 
 <br>
 
@@ -518,4 +520,65 @@ hello &nbsp; world!
 
 [escape를 해주는 페이지](http://www.htmlescape.net/htmlescape_tool.html)
 
+<br>
+
 ---
+
+<br>
+
+## TABLE
+
+* 데이터를 읽기 좋게 만들어 제공하기 위해 사용한다.
+
+* 문법
+    ```html
+    <table>
+        <caption>table명</caption>
+        <tr>
+            <th>column1</th><th>column2</th>,,,
+        </tr>
+        <tr>
+            <td>Data1</td><td>Data2</td>,,,
+        </tr>
+    </table>
+    ```
+    * &lt;tr&gt; Tag는 테이블에서 열을 구분한다.
+    * &lt;th&gt; Tag는 각 column의 제먹을 나타내 주며 모든 내용은 자동으로 굵은 글씨에 가운데 정렬이다.
+    * &lt;td&gt; Tag는 테이블의 열을 각각 cell으로 나눈다.
+
+* CSS의 border속성을 이용하여 테이블의 테이블을 표현할 수 있다.
+<br />(border을 사용하지 않으면 빈 테두리가 default값이다.)
+
+* 테이블의 열을 합칠 때 rowspan을 사용
+
+* 테이블의 행을 합칠 때 colspan을 사용
+
+* &lt;caption&gt;태그를 사용하면 테이블 상단 중앙에 제목이나 짧은 설명을 붙일 수 있다.
+
+* &lt;figure&gt; 태그와 &lt;figcaption&gt;로 테이블에 대한 설명을 붙일 수 있다.
+
+<br>
+
+---
+
+<br>
+
+## Marquee(흘러가는 글자)
+
+* 글자나 이미지가 지정한 방향으로 흐르게 할 수 있다.
+
+* 문법
+
+    ```html
+    <marquee scrollamount="속도" direction="방향" behavior="동작">내용</marquee>
+    ```
+
+    * 방향 : left, right, up, down (up, down은 높이 값이 있어야한다.)
+    * 동작 : slide(종료지점에서 정지), alternate(왔다가 갔다가 반복)
+
+<br>
+
+---
+
+<br>
+

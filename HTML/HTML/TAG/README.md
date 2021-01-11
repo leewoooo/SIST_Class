@@ -582,3 +582,142 @@ hello &nbsp; world!
 
 <br>
 
+
+## Media 태그
+
+* 음악, 동영상을 재생하는 태그
+
+* HTML 4.01에서는 &lt;embed&gt; 태그를 사용하여 음악, 동영상을 하나의 태그로 재생.
+
+* HTML5에서는 &lt;audio&gt;, &lt;video&gt;를 사용하여 음악과 동영상을 구분하여 보여준다.
+
+* 음악파일은 모든 브라우저가 재생가능하지만, 동영상은 브라우저마다 지원하는 코덱이 다르다.
+
+* 문법
+
+    1. embed문법
+
+    ```html
+    <embed type="타입" src="경로" width="넓이" height="높이" autoplay="자동재생여부">
+    ```
+
+    2. video문법
+
+    ```html
+    <video src="비디오 파일이 경로" width="넓이" height="높이" controls="controls" muted="muted"
+    poster="비디오 파일이 로딩되기 전까지 보여줄 이미지 파일" loop="반복여뷰">text</video>
+
+    <!-- (브라우저의 코델이 비디오파일을 지원하지 않는 경우에는 )-->
+    <video>
+        <source src="비디오 파일 경로">  <!--1번파일이 실행되지 않으면 이하 지정한 파일이 실행-->
+        <source src="비디오 파일 경로">
+    </video>
+    ```
+
+
+    3. audio문법
+
+    ```html
+    <audio src="오디오 파일의 경로" autoplay="autoplay" controls="controls" preload="다운로드의 여부">
+
+
+<br>
+
+---
+
+<br>
+
+## 영역태그
+
+* div와 span이 있다.
+
+* div : block level의 요소로 브라우저의 width의 100%가 기본설정이다.
+
+* span : inline-block의 요소로 자신이 가지고 있는 content의 크기만큼만 width로 설정된다.
+
+* 영역을 확인하고 싶을 때는 요소의 배경색을 설정해서 확인해 보는 것이 가장 직관적이다.
+
+<br>
+
+---
+
+<br>
+
+
+## 레이아웃
+
+* 레이아웃이란 특정 공간에 여러 구성요소를 보기 좋게 효과적으로 배치하는 작업을 말한다.
+
+* HTML에서 레이아웃을 작성하는 방법
+
+    1. div요소를 이용한 레이아웃
+
+    2. HTML5 레이아웃
+
+    3. table 요소를 이용한 레이아웃 (테이블 요소를 이용하여 레이아웃을 구성하는 것 현재는 거의 사용하지 않음.)
+
+* div요소는 CSS에서 스타일을 손쉽게 적용할 수 있도록 도와준다. 
+
+* HTML5 레이아웃 (시맨틱 태그)
+
+    * 기본적인 구성
+
+    <img src = https://user-images.githubusercontent.com/74294325/103472700-d3b19180-4dd3-11eb-98f6-90b5c0ffa406.JPG>
+
+    * header : HTML 문서나 section부분에 대한 header을 정의한다.(여러개 존재 가능)
+
+    * nav : HTML 문서 사이를 탐색할 수 있는 링크의 집합(문서 내의 모든 링크가 nav에 포함되는 것은 아니다.)
+
+    * section : 제목을 가지고 있으며 HTML 문서의 전체적인 내용과 관련이 있는 contents의 집합
+
+    * article : HTML 문서에서 독립적인 기사 부분을 정의한다.
+
+    * figure : HTML 문서에서 그래픽과 비디오 등의 독립적인 contents를 정의
+
+    * figcaption : figure과 같은 요소의 설명을 정의
+
+    * footer : HTML의 가장 아래 위치하며 사이트의 작성자나 저작권,연락처 등을 명시하는 영역
+
+
+<br>
+
+---
+
+<br>
+
+## Meta
+
+* HTML 문서에 대한 정보(data)로 웹 브라우저에는 직접적으로 표현되지 않는 정보를 의미.
+
+* 문자의 charset을 설정하거나 html에 필요한 정보들이 담겨있다.
+
+* metadata에는 &lt;title&gt;, &lt;style&gt;, &lt;meta&gt;, &lt;link&gt;, &lt;script&gt;, &lt;base&gt;태그 등을 이용하여 표현할 수 있다.
+
+* 문법
+```html
+<meta name="" content=""/>
+
+<!--ex-->
+<meta name="description" content="문서에대한 설명"/>
+<meta name="keyword" content="주요 키워드,주요 키워드,,"/>
+
+<!--ex) 초를 설정하여 설정한 초가 지나면 지정한 url로 이동하게 하는 meta data-->
+<meta http-equiv="refresh" content="초;url=이동할 페이지의 url"/> 
+
+<!--ex) 다양한 device에서 페이지가 잘 보이도록 설정.-->
+<meta name="viewport" content="width=device-width,initial-scale=1.0, user-scalable=no"/>
+```
+
+### Character set
+
+* 웹 브라우저가 HTML 문서를 정확하게 나타내기 위해 해당 문서가 어떠한 문자셋을 사용하는지 지정.
+
+* &lt;head&gt; Tag내에서 명시한다.
+
+* 문법
+
+    ```html
+    <meta charset="UTF-8"> <!--HTML5의 문자셋 지정-->
+    ```
+
+---

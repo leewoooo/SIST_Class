@@ -68,7 +68,10 @@
 
 <br>
 
----
+
+
+Form Control
+===
 
 <br>
 
@@ -156,6 +159,8 @@
 
 ## 비밀번호 입력
 
+* 입력창에는 한글을 입력할 수 없습니다.
+
 * 문법
     ```html
     <input type="password" name="값의 이름" />
@@ -194,13 +199,13 @@
 
 * 여러개의 값을 같은이름으로 서버에 전송해야 할 때 사용
 * **체크박스로 그룹화 하려면 name의 값이 동일해야 한다.**
-* name의 값에 []를 붙이면 server에서는 값을 배열로 인식한다.
+* name의 값이 동일하면 배열로 값이 전송된다.
 
 * 문법
     ```html
-    <input type="checkbox" name="값의이름[]" value="값1" checked="checked"/> 사용자에게 보여줄 값
-    <input type="checkbox" name="값의이름[]" value="값2" /> 사용자에게 보여줄 값
-    <input type="checkbox" name="값의이름[]" value="값3" /> 사용자에게 보여줄 값
+    <input type="checkbox" name="값의이름" value="값1" checked="checked"/> 사용자에게 보여줄 값
+    <input type="checkbox" name="값의이름" value="값2" /> 사용자에게 보여줄 값
+    <input type="checkbox" name="값의이름" value="값3" /> 사용자에게 보여줄 값
 
     <!--ex-->
     <input type="checkbox" name="lecture" value="html" checked> HTML <br>
@@ -331,9 +336,13 @@
 
 * 여러줄의 텍스트를 입력할 때 사용
 
+* HTML이나 JSP에서는 태그의 사이에 값을 입력한다.
+
+* JavaScript에서는 value속성을 사용하여 값을 넣는다.
+
 * 문법
     ```html
-    <textarea name="값의 이름" rows="행의 수" cols="열의 수" disabled="disabled"            readonly="readonly">값 </textarea>
+    <textarea name="값의 이름" rows="행의 수" cols="열의 수" disabled="disabled" readonly="readonly">값 </textarea>
     ```
 
 
@@ -349,3 +358,17 @@
 <br>
 
 ---
+
+<br>
+
+## HTML에서 추가된 control
+
+* IE에서는 동작하지 않는다.
+
+* color, date, month, range, tel, email등 제공한다.
+
+<br>
+
+---
+
+<br>

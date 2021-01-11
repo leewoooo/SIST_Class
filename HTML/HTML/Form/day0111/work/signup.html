@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sign Up</title>
+</head>
+<body>
+	<header>
+		<h1>회원 가입</h1>
+	</header>
+	<main>
+		<form action="#">
+			<table>
+				<tr>
+					<th><span>*</span>아이디</th>
+					<td><input type="text" readonly="readonly" required="required" />
+						<button type="button" >중복확인</button></td>
+				</tr>
+				<tr>
+					<th><span>*</span>비밀번호</th>
+					<td><input type="password" required="required"></td>
+				</tr>
+				<tr>
+					<th><span>*</span>비밀번호확인</th>
+					<td><input type="password" required="required"></td>
+				</tr>
+				<tr>
+					<th><span>*</span>이름</th>
+					<td><input type="text" required="required"></td>
+				</tr>
+				<tr>
+					<th><span>*</span>주민번호</th>
+					<td><input type="text" required="required"> - <input
+						type="password" required="required"></td>
+				</tr>
+				<tr>
+					<th><span>*</span>성별</th>
+					<td><input type="radio" name="gender" value="M">남자 <input
+						type="radio" name="gender" value="F">여자</td>
+				</tr>
+				<tr>
+					<th>생년월일</th>
+					<td><input type="date"></td>
+				</tr>
+				<tr>
+					<th><span>*</span>전화번호</th>
+					<td><select>
+							<option value="010">010
+							<option value="010">011
+							<option value="010">016
+							<option value="010">017
+							<option value="010">018
+							<option value="010">019
+					</select> <input type="text" required="required"> - <input
+						type="text" required="required"></td>
+				</tr>
+				<tr>
+					<th><span>*</span>우편번호</th>
+					<td><input type="text" readonly="readonly" required="required">
+						<button type="button">우편번호 찾기</button></td>
+				</tr>
+				<tr>
+					<th><span>*</span>주소</th>
+					<td><input type="text" readonly="readonly" required="required"></td>
+				</tr>
+				<tr>
+					<th><span>*</span>상세주소</th>
+					<td><input type="text" required="required"></td>
+				</tr>
+				<tr>
+					<th>이메일</th>
+					<td><input type="text"> @ <select>
+							<option value="user">직접입력
+							<option value="daum">daum.net
+							<option value="naver">naver.com
+							<option value="google">google.com
+							<option value="nate">nate.com
+					</select> <input type="text"></td>
+				</tr>
+				<tr>
+					<th rowspan="2">관심언어</th>
+					<td rowspan="2"><input type="checkbox" name="lan" value="java">자바
+						<input type="checkbox" name="lan" value="c">C/C++ <input
+						type="checkbox" name="lan" value="pyhton">Pyhton <input
+						type="checkbox" name="lan" value="HTML">HTML<br/>
+					<input type="checkbox" name="lan" value="jsp">JSP
+					<input type="checkbox" name="lan" value="php">PHP
+					<input type="checkbox" name="lan" value="asp">ASP
+					</td>
+				</tr>
+				<tr></tr>
+				<tr>
+					<th>자기소개</th>
+					<td>
+					<textarea rows="6" cols="65"></textarea>
+					</td>
+				</tr>
+			</table>
+			<input type="submit" value="가입">
+			<input type="reset" value="다시작성">
+		</form>
+	</main>
+</body>
+</html>

@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>input 태그의 연습.</title>
+</head>
+<body>
+	<form name="frm" method="get" action="test.jsp">
+		<input /><br /> <label>text</label> <input type="text" name="name" /><br />
+		<label>size, maxlength</label>
+		<!-- size="보여질크기" maxlength="최대입력글자수" -->
+		<input type="text" name="name1" size="5" maxlength="10" /><br /> <label>value,
+			readonly</label>
+		<!-- readyonly="readonly" 읽기전용-수정불가, back-end로 값 전송가능. -->
+		<input type="text" name="name2" value="읽기전용" readonly="readonly" /><br />
+		<label>value, diabled</label>
+		<!-- disabled="disabled" 비활성화-수정불가, back-end로 값 전송불가능. -->
+		<input type="text" name="name3" value="비활성화" disabled="disabled" /><br />
+		<label>autofocus, placeholder</label> <input type="text" name="name4"
+			autofocus="autofocus" placeholder="값입력시 사라질 메세지" /><br />
+		<!-- input type="password"에서도 동일하게 사용된다.  -->
+		<label>password</label>
+		<!-- 사용자가 한글을 입력할 수 없다. -->
+		<input type="password" name="pass" value="test" /><br /> <label>placeholder</label>
+		<!-- placeholder를 사용하면 반향문자가 아닌 문자가 보여진다.  -->
+		<input type="password" name="pass1" placeholder="비밀번호" /><br /> <label>checkbox</label>
+		<input type="checkbox" name="cb" value="전송할 값" />보여질값<br /> <label>checkbox
+			group, checked</label>
+		<!-- name속성이 같으면 그룹으로 처리된다. checked 선택된 상태로 제공할 때.-->
+		<input type="checkbox" name="hobby" value="산오르기" />등산<br /> <input
+			type="checkbox" name="hobby" value="피싱" checked="checked" />낚시<br />
+		<input type="checkbox" name="hobby" value="게임" />게임<br /> <input
+			type="checkbox" name="hobby" value="코딩" checked="checked" />자바<br />
+
+		<label>radio</label>
+		<!-- name속성에 이름이 같아야 여러개 중 하나만 선택된다. : 그룹화 -->
+		<input type="radio" name="gender" value="M" checked="checked" />남자 <input
+			type="radio" name="gender" value="F" />여자<br /> <label>히든</label>
+		<!-- 사용자에게 보여지지 않는 Form Control -->
+		<input type="hidden" name="hid" value="숨겨서 넘길 값." /><br /> <label>파일</label>
+		<!-- 선택한 파일이 서버로 업로드 될려면 enctype="multipart/form-data" 이어야한다. -->
+		<input type="file" name="upfile" /><br /> <label>이미지</label>
+		<!-- image속성을 사용하여 image를 넣으면 submit의 기능을 가지게된다. -->
+		<img src="../day0107/images/work.png" title="img태그" width="80" /> <input
+			type="image" src="../day0107/images/work.png" title="image 태그"
+			width="80" /> <br />
+
+
+		<!-- form태그 안에 있을 때에만 정해진 일을 수행. -->
+		<label>버튼모양</label>
+		<!-- label을 가지고 있지 않고 모양만 제공, JavaScript에서 전송제어. 고유라벨 없음. -->
+		<input type="button" /><br /> <label>reset</label>
+		<!-- HTML처음 로딩될 때의 상태로 돌린다. (입력값들이 모두 사라진다.)  고유라벨 있음.-->
+		<input type="reset" /><br /> <label>submit</label>
+		<!-- action속성에 설정된 back-end페이지로 입력값을 전송한다. 고유라벨 있음.-->
+		<input type="submit" />
+	</form>
+
+	<!-- http://localhost/html_prj/day0111/test.jsp?이름=값&name=사용자가입력한값  -->
+</body>
+</html>

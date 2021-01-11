@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>audio/ video</title>
+</head>
+<body>
+<video src="media/video.mp4" controls="controls" width="300" height="400"
+	 loop="loop" poster="../day0107/images/work.png">당신의 브라우저는 비디오 태그를 지원하지 않습니다.</video>
+<br/>
+<!-- 여러개의 인코딩한 파일 올리기 -->
+<video controls="controls">
+ <source src="media/video.mp4"/>
+ <source src="media/video.mp4"/>
+ <source src="media/video.mp4"/>
+</video>
+<br/>
+<!-- preload="none, metadata, auto"
+     auto - 기본속성. audio나 video 파일을 미리 다운로드 시킬 때.
+     none -미리 다운로드 하지 않을 때.
+     metadata - 파일자체는 미리 다운로드 하지 않고, 파일의 정보만 다운로드 할 때
+                     (파일의 크기, 처음프레임, 비디오 길이등  )
+ -->
+<audio src="media/audio.mp3" controls="controls"
+ autoplay="autoplay" preload="auto">당신의 브라우저는 오디오태그를 지원하지 않습니다.</audio>	
+</body>
+</html>

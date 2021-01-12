@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>바닥색</title>
+<style type="text/css">
+	#numTitle{ width:50px }
+	#nameTitle{ width:120px }
+	#siteTitle{ width:250px }
+
+	/* th의 바닥색설정  */
+	th{ background-color: #1A2036; color: #B5BDDB }
+	td{ border-bottom: 1px solid #1A2036 }
+	table{ border-spacing: 0px }
+	
+	/* 바닥이미지 */
+	#div{
+	  width:1000px; height: 600px;border:1px solid #333 ;
+	   background:#FFFFFF url('../day0107/images/work.png') no-repeat
+	/*   background:#FF0000 url('http://localhost/html_prj/day0107/images/work.png') */
+	}
+	
+	body{ background: #FFFFFF url('../common/images/navi_bar.png') repeat-x;}
+</style>
+</head>
+<body>
+<table>
+<tr>
+	<th id="numTitle">번호</th>
+	<th id="nameTitle">이름</th>
+	<th id="siteTitle">자주가는 사이트</th>
+</tr>
+<tr>
+	<td>1</td>
+	<td>김현규</td>
+	<td><a href="http://daum.net">다음</a></td>
+</tr>
+<tr>
+	<td>2</td>
+	<td>신지영</td>
+	<td><a href="http://google.com">구글</a></td>
+</tr>
+<tr>
+	<td>3</td>
+	<td>장일규</td>
+	<td><a href="http://naver.com">네이버</a></td>
+</tr>
+</table>
+<div id="div">
+</div>
+
+<img src="../day0107/images/work.png" style="cursor:crosshair;"/>
+
+</body>
+</html>

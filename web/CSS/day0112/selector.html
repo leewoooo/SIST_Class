@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="UTF-8">
+			<title>selector</title>
+			<style type="text/css">
+				/* id선택자의 사용 */
+				#java, #jdbc {
+					color: #0000FF;
+				}
+				/* class선택자의 정의 */
+				.odd {
+					font-size: 15px; color: blue; font-style: italic; font-weight: bold;
+				}
+				.even{
+					font-size: 20px; color: red; font-style: oblique; font-weight: bold;
+				}
+				
+				ul  {
+					line-height: 3em;
+				}
+				
+				/* 서브 선택자 */
+				ul > li {
+					text-decoration: underline;
+				}
+				
+				a{
+					color: #3f3f3f;
+					font-size: 20px;
+					text-decoration: none;
+				}				
+				
+				a:hover {
+					color: #4f4f4f;
+					font-size: 50px;
+					text-decoration: line-through;
+				}
+				
+			</style>
+		</head>
+		<body>
+			<div id="java" >Java</div>
+			<div>Oracle</div>
+			<div id="jdbc" >JDBC</div>
+			<div>Spring</div>
+			<ul>
+				<li class="odd">1</li>
+				<li class="even">2</li>
+				<li class="odd">3</li>
+				<li class="even">4</li>
+			</ul>
+			<div class="test">
+				<a href = "#">hover test</a>
+			</div>
+		</body>
+</html>

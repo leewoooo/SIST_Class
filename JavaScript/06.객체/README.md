@@ -89,3 +89,35 @@ console.log(test2.name); //temp가 출력
 <br>
 
 이 둘은 객체를 생성하는 방법이라는 관점에서는 동일하지만 객체의 사용이라느 방식에서 차이가 있다. **JSON 방식을 이용하면 객체 리터럴이기에 단일 객체로만 활용된다.**
+
+<br>
+
+## 생성자 함수
+
+객체를 생성자를 통해서도 생성을 할 수 있다 객체가 가져야하는 것을 미리 정의해 놓을 때 주로 사용한다.
+
+```javascript
+function person(name,age){
+    this.name : name,
+    this.age : age
+}
+```
+
+생성자 함수를 이용해서 객체를 생성하게되면 생성되는 객체마다 메모리를 할당받게 된다.
+
+생성자 함수에 method를 추가하기 위해서는 자바스크립트에서 프로토타입을 지원한다.
+
+```javascript
+person.prototype.info = function(){
+    console.log(`이름${this.name} 나이${this.age}`);
+}
+```
+
+<br>
+
+이렇게 프로토 타입으로 함수를 추가하게 되면 생성자 함수를 통해 만들어지는 객체들은 모두 info라는 method를 갖게된다.
+
+```javascript
+let lee = person("이우길",26);
+lee.info(); // 결과로 이름이우길나이26 출력된다.
+```

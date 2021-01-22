@@ -56,7 +56,7 @@ Thread
 
 1. Thread class를 상속을 받아서 쓰는 방법.
 
-    <img src =https://user-images.githubusercontent.com/74294325/101603835-7bd97200-3a43-11eb-91df-c0b5635105e9.png>
+    <img src =https://user-images.githubusercontent.com/74294325/105458060-34ddce00-5ccb-11eb-8cfe-f2147a43fa74.png>
 
     <br>
     <br>

@@ -1,24 +1,6 @@
 # SIST Class
-- 강의 내용 정리 및 예제를 저장하는 저장소
 
-- [Jangilku](https://github.com/Jangilkyu)의 github사용을 보고 영감을 받아 시작하게 되었습니다.
-    (start 2020.11.11~)
-    
-- JAVA의 2020-11-10 이전 강의 내용들은 [Java_LiveStudy](https://github.com/LeeWoooo/Java_LiveStudy)로 대체하여 기록할 것 입니다.
-
-- 새로 알게 된 문법이나 개념들 또한 계속 추가 될 것입니다.
-
-- SIST강의 중 JAVA강의가 끝났기에 찾아 보기 쉽게 파일의 구조를 변경(2020-12-12)
-
-- SIST강의 중 ORACLE강의가 끝났기에 찾아 보기 쉽게 파일의 구조를 변경(2020-12-24) 
-
-- SIST강의 중 JDBC강의가 끝났기에 찾아 보기 쉽게 파일의 구조를 변경 (2021-01-05)
-
-    * 추후 기능을 찾아보기 편하게 하기 위해서 입니다.
-
-
-
-- GOOD LUCK :)
+### GOOD LUCK :)
 
 ---
 
@@ -60,23 +42,14 @@
 ### :coffee: JDBC
 
 * [JDBC란 & 기본적인 구조](https://github.com/LeeWoooo/SIST_Class/tree/master/JDBC/JDBC)
-
 * [Statement](https://github.com/LeeWoooo/SIST_Class/tree/master/JDBC/Statement)
-
 * [preparedStatement](https://github.com/LeeWoooo/SIST_Class/tree/master/JDBC/PreparedStatement)
-
 * [Procedure & CallableStatement](https://github.com/LeeWoooo/SIST_Class/tree/master/JDBC/CallableStatement)
-
     * [CallableStatement(SELECT)](https://github.com/LeeWoooo/SIST_Class/tree/master/JDBC/CallableStatement(SELECT))
-
 * [ResultSetMetaData](https://github.com/LeeWoooo/SIST_Class/tree/master/JDBC/ResultSetMetaData)
-
 * [Excute,ExcuteQuery,ExcuteUpdate](https://github.com/LeeWoooo/SIST_Class/tree/master/JDBC/excute)
-
 * [SQL_Injection](https://github.com/LeeWoooo/SIST_Class/tree/master/JDBC/SQL_Injection)
-
 * [Singleton](https://github.com/LeeWoooo/SIST_Class/tree/master/JDBC/Singleton)
-
 * [CLOB](https://github.com/LeeWoooo/SIST_Class/tree/master/JDBC/CLOB(Character%20Large%20Object))
 
 <br>
@@ -100,3 +73,29 @@
 * [INDEX](https://github.com/LeeWoooo/SIST_Class/tree/master/Oracle/INDEX)
 * [SYNONYM](https://github.com/LeeWoooo/SIST_Class/tree/master/Oracle/SYNONYM)
 * [VIEW](https://github.com/LeeWoooo/SIST_Class/tree/master/Oracle/VIEW)
+
+<br>
+
+## :tv: WEB
+
+### HTML
+* HTML
+    * [HTML](https://github.com/LeeWoooo/SIST_Class/tree/master/web/HTML/HTML%2CWeb_Programing)
+    * [Form](https://github.com/LeeWoooo/SIST_Class/tree/master/web/HTML/Form)
+    * [Tag](https://github.com/LeeWoooo/SIST_Class/tree/master/web/HTML/TAG)
+
+<br>
+
+* [css](https://github.com/LeeWoooo/SIST_Class/tree/master/web/CSS)
+
+<br>
+
+* JavaScript
+    * [javascript](https://github.com/LeeWoooo/SIST_Class/tree/master/JavaScript/01.Javascript)
+    * [Datatype](https://github.com/LeeWoooo/SIST_Class/tree/master/JavaScript/02.DataType)
+    * [조건문](https://github.com/LeeWoooo/SIST_Class/tree/master/JavaScript/03.%EC%A1%B0%EA%B1%B4%EB%AC%B8)
+    * [반복문](https://github.com/LeeWoooo/SIST_Class/tree/master/JavaScript/04.%EB%B0%98%EB%B3%B5%EB%AC%B8)
+    * [함수](https://github.com/LeeWoooo/SIST_Class/tree/master/JavaScript)
+    * [객체](https://github.com/LeeWoooo/SIST_Class/tree/master/JavaScript/06.%EA%B0%9D%EC%B2%B4)
+    * [내장객체](https://github.com/LeeWoooo/SIST_Class/tree/master/JavaScript/07.%EB%82%B4%EC%9E%A5%EA%B0%9D%EC%B2%B4)
+    * [JSON](https://github.com/LeeWoooo/SIST_Class/tree/master/JavaScript/08.JSON)

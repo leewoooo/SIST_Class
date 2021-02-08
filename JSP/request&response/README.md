@@ -15,6 +15,35 @@ request 객체가 제공하는 기능은 다음과 같다.
 
 <br>
 
+### request객체가 제공하는 header 관련 method
+
+method | return type | 설명
+:--- | :--- | :---
+getHeader(String name) | String | 지정한 이름의 헤더 값을 구한다.
+getHeaders(String name) | java.util.Enumeration | 지정한 이름의 헤더 목록을 구한다.
+getHeaderNames() | java.util.Enumeration | 모든 헤더의 이름을 구한다.
+getIntHeader(String name) | int | 지정한 헤더의 값을 정수 값으로 읽어온다.
+getDateHeader(String name) | Long | 지정한 헤더의 값을 시간 값으로 읽어온다.
+
+<br>
+
+### request객체의 클라이언트 및 서버 정보 관련 method
+
+request 기본 객체는 웹 브라우저, 즉 클라이언트가 정송한 정보와 서버 정보를 구할 수 있는 method르 제공하고 있다.
+
+method | return type | 설명
+:--- | :--- | :---
+getRemoteAddr() | String | 웹 서버에 연결한 클라이언트의 IP주소를 구한다.
+getContentLength() | Long | 클라이언트가 전송한 요청 정보의 길이를 구한다. 
+getCharacterEncoding() | String | 클라이언트가 요청 정보를 전송할 때 사용한 캐릭터의 인코딩을 구한다.
+getContentType() | String | 클라이언트가 요청 정보를 전송할 때 사용한 컨텐츠의 타입을 구한다.
+getMethod() | String | 웹 브라우저가 정보를 전송할 때 사용한 방식을 구한다.
+getRequestURI() | String | 웹 브라우저가 요청한 URL에서 경로를 구한다.
+getServerName() | String | 연결할 때 사용한 서버의 이름을 구한다.
+getServerPort() | String | 서버가 실행중인 포트 번호를 구한다.
+
+<br>
+
 ### request객체의 요청 파라미터 관련 method
 
 request 객체는 웹 브라우저가 전송한 파라미터를 읽어올 수 있다.

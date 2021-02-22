@@ -142,3 +142,101 @@ public void doFilter(ServletRequest request, ServletResponse response, FilterCha
 }
 ```
 
+<BR>
+
+## 추가 내용
+
+web.xml에 등록할 때 url패턴을 적용받을 페이지를 직접 등록을 해줄 수 있지만 directory안에 있는 모든 페이지에서도 적용받도록 할 수 있다.
+
+<br>
+
+```xml
+<filter-mapping>
+    <filter-name>SistFilter</filter-name>
+    <url-pattern>/insert.jsp</url-pattern><!--특정 요청 하나일 때는 / 를 맨 앞에 붙여줘야한다.  -->
+    <url-pattern>/update.jsp</url-pattern><!--특정 요청 하나일 때는 / 를 맨 앞에 붙여줘야한다.  -->
+    <url-pattern>/delete.jsp</url-pattern><!--특정 요청 하나일 때는 / 를 맨 앞에 붙여줘야한다.  -->
+</filter-mapping>
+```
+
+<br> 
+
+이와 같이 각각의 페이지를 직접 적용할 수 있지만 directory를 만들어 처리할 수 있다. 
+
+<br>
+
+```xml
+<filter-mapping>
+  	<filter-name>filterManager</filter-name>
+	<url-pattern>/manager/*</url-pattern>  
+</filter-mapping>
+```
+
+<Br>
+
+## log기록하기
+
+먼저 filter를 작성한다. init method에 매개변수로 들어오는 filterConfig를 통해 web.xml에 설정해 놓은 파일의 경로를 가져와서 스트림에 연결을 한다.
+
+```xml
+<filter>
+  	<filter-name>LogFilter</filter-name>
+  	<filter-class>filter.LogFilter</filter-class>
+  	<init-param>
+  		<param-name>filename</param-name>
+  		<param-value>C:\dev\webmarket\webmarket\WebContent\logs\webmarket.log<!--log파일의 위치--></param-value>
+  	</init-param>
+</filter>
+<filter-mapping>
+<filter-name>LogFilter</filter-name>
+<url-pattern>/*</url-pattern>
+</filter-mapping>
+```
+```java
+@Override
+	public void init(FilterConfig filterConfig) throws ServletException {
+		String filename = filterConfig.getInitParameter("filename");
+		if(filename == null) {
+			throw new ServletException("로그 파일의 이름을 찾을 수 없습니다.");
+		}
+		try{
+			//FileWriter의 두번째 인자를 true로 준 이유는 작성할 때 이미 작성된 내용에 추가로 append하기 위해서이다. 
+			//PrintWriter의 두번째 매개변수인 true는 autoflush기능을 참으로 설정
+			printWriter = new PrintWriter(new FileWriter(filename,true),true);
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
+```
+
+<Br>
+
+이후 doFilter에서 log에 남길 내용들을 스트림을 통해 작성을 한다.
+
+```java
+@Override
+public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+        throws IOException, ServletException {
+    printWriter.println("접속한 클라이언트 IP: "+request.getRemoteAddr());
+    Long start = System.currentTimeMillis();
+    printWriter.println("접근한 URL 경로: "+ getURLPath(request));
+    printWriter.println("요청 처리 시작 시간: " + getCurrentTime());
+    chain.doFilter(request, response);
+    
+    Long end = System.currentTimeMillis();
+    printWriter.println("요청 처리 종료 시간: " + getCurrentTime());
+    printWriter.println("요청 처리 소요 시간: " + (end-start));
+    printWriter.println("==================================================");
+}
+```
+
+<br>
+
+destory에서 스트림을 다 사용하였으니 자원을 반납해준다.
+
+```java
+@Override
+public void destroy() {
+    printWriter.close();
+}
+```

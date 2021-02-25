@@ -43,10 +43,9 @@ sample3은 spring에서 사용하는 DI개념이다. Spring Bean Configuration f
 
 ## Bean 등록
 
+<Br>
 
-### XML로 등록
-
-<br>
+## XML로 등록
 
 오늘 수업에서는 xml을 통한 Bean을 등록하는 방법을 교육받았다(02/24) 등록하는 방법을 코드로 확인해보자면 <br>
 
@@ -146,3 +145,113 @@ bookDAO.insertBook();
 ```
 
 ApplicatinContext는 BeanFactory interface를 상속하고 있다.
+
+<BR>
+
+---
+
+## Annotation으로 등록
+
+XML대신 자바의 Class가 그 역할을 대신 해주는 것을 이야기 한다. <br>
+
+이전 공부했던 [DI](https://github.com/LeeWoooo/TIL/tree/main/spring/DI)안에 '@Configuration를 이용한 Bean등록' 를 참조해서 공부를 해보자. <br>
+
+XML에서 &lt;bean/>으로 빈을 등록해줬었는데 Annotation으로는 @Bean으로 등록을 할 수 있다. <br>
+
+단 **환경설정으로 사용할 자바 Class는 Class위에 @Configuration을 선언해주어야 한다.** 코드로 한번 확인해보자! <br>
+
+* xml 방법
+
+```xml
+<bean id="bookDAO" class="com.sist.exam07.BookDAO">
+    <constructor-arg value="99"/>
+    <constructor-arg ref="book"/>
+</bean>
+```
+
+* Annotation 방법
+
+```java
+@Configuration
+public class Config{
+    @Bean
+    public BookDAO bookDAO(){
+        return new BookDAO(99,"book");
+    }
+}
+```
+
+<br>
+
+여기서도 Bean으로 등록된 객체끼리 의존성을 가지고 있을 수 도 있는데 다음과 같이 처리해주면 된다 예제 코드로 확인을 해보자. UpdateInfo라는 class가 있고 MeberServicec라는 class는 UpdateInfo를 의존하고 있다. 
+
+* UpdateInfo
+```java
+public class UpdateInfo {
+
+	private final String id;
+
+	public UpdateInfo(String id) {
+		this.id = id;
+	}
+
+	public String getId() {
+		return id;
+	};
+	
+}
+```
+
+* MeberServicec
+```java
+public class MemberService {
+
+	private final UpdateInfo info;
+
+	public MemberService(UpdateInfo info) {
+		this.info = info;
+	}
+
+	public void update(String memberID) {
+		System.out.println(memberID + "의 정보를 " + info.getId() + "로 수정하였습니다.");
+	}
+}
+```
+
+* @Configuration
+```java
+@Configuration
+public class SpringConfig {
+
+	@Bean
+	public UpdateInfo info() {
+		return new UpdateInfo("이우길");
+	}
+	
+	@Bean
+	public MemberService memberService() {
+		return new MemberService(info());
+	}
+}
+```
+
+<br>
+
+이와 같이 memberService가 생성이 되는 시점에 의존하고 있는 객체의 생성자를 넣어줌으로 의존관계를 설정할 수 있다. 이제 잘 엮였는지 test를 하기 위해 Main class를 생성했다.
+```java
+public class MainTest {
+	public static void main(String[] args) {	
+		ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+		MemberService memberService = (MemberService)context.getBean("memberService");
+		memberService.update("백엔드 개발자");
+	}
+}
+```
+
+<Br>
+
+등록되어 있는 Bean을 가져올 때는 똑같이 ApplicationContext을 이용하지만 AnnotationConfigApplicationContext로 생성을 하고 매개변수로 config class를 넣어준다. getBean으로 가져올 때는 Bean으로 등록하는 method의 method명을 매개변수로 넣어준다.(xml의 id = config의 method 명) <br>
+
+* 결과
+
+    <img src = https://user-images.githubusercontent.com/74294325/109113236-48bf9880-777f-11eb-9248-3b9b450bdfda.PNG>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="com.sist.dao.BoardDAO" id="boardDAO"/>
+	
+	<bean class="com.sist.controller.BoardController">
+		<constructor-arg ref="boardDAO"/>
+	</bean>
+	
+	<!-- view 리졸버 설정 prefix는 view 파일이 있는 파일 위치 suffix는  해당 view의 확장자-->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/view/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<!-- <bean class="com.sist.controller.BoardController">
+		<constructor-arg ref="boardDAO"/>
+	</bean> -->
+</beans>

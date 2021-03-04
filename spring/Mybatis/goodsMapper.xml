@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="GoodsMapper">
+  <select id="findAll" resultType="goodVO">
+    SELECT * FROM GOODS
+  </select>
+  
+  <select id="findByNo" resultType="goodVO" parameterType="int">
+  	SELECT * FROM GOODS WHERE NO=#{no}
+  </select>
+  
+  <insert id="save">
+  	INSERT INTO GOODS VALUES(#{no},#{name},#{qty},#{price},#{fname})
+  </insert>
+  
+  <delete id="deleteByNo">
+  	DELETE FROM GOODS WHERE NO=#{no}
+  </delete>
+  
+  <update id="update">
+  	UPDATE GOODS SET NAME=#{name},QTY=#{qty},PRICE=#{price},FNAME=#{fname} WHERE NO=#{no}
+  </update>
+</mapper>

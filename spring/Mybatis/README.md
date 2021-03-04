@@ -108,6 +108,8 @@ mybatis-config는 mybatis의 메인 환경설정 파일이다. 어떤 DBMS와 �
     </mapper>
     ```
 
+    넘어오는 값을 #{}로 받을수 있으며 VO(DTO)가 넘어온다면 ${}안에 필드명을 넣어주어 받을 수 있게 된다.
+
 <br>
 
 3. SqlSessionFactory class 만들기

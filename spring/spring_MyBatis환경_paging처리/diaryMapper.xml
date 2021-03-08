@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="diaryMapper">
+
+	<select id="findAllPaging" resultType="com.diary.vo.DiaryVO">
+		<![CDATA[
+		SELECT USERID,DIARYTITLE,DIARYCONTENT,CREATEDAT,MODIFIEDAT,FNAME,DIARYNO,B_REF,B_STEP,B_LEVEL,SEQ 
+		FROM ( SELECT USERID,DIARYTITLE,DIARYCONTENT,CREATEDAT,MODIFIEDAT,FNAME,DIARYNO,B_REF,B_STEP,B_LEVEL,ROW_NUMBER()OVER(ORDER BY B_REF DESC,B_STEP) SEQ 
+		 		FROM DIARYBOARD 
+		 		WHERE DIARYNO > 0 AND USERID=#{userID})
+		WHERE SEQ > #{start} AND SEQ < #{end}
+		]]> 		
+	</select>
+	
+	<select id="getMax" resultType="java.lang.Integer">
+		SELECT NVL(MAX(DIARYNO),0)+1 FROM DIARYBOARD
+	</select>
+	
+	<select id="count" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM DIARYBOARD WHERE USERID = #{userID}
+	</select>
+	
+	<select id="findByNo" resultType="com.diary.vo.DiaryVO">
+		SELECT * FROM DIARYBOARD WHERE DIARYNO = #{diaryNO}
+	</select>
+	
+	<insert id="save">
+		INSERT INTO DIARYBOARD (USERID,DIARYTITLE,DIARYCONTENT,CREATEDAT,MODIFIEDAT,FNAME,DIARYNO,B_REF,B_STEP,B_LEVEL) VALUES (#{userID},#{diaryTitle},#{diaryContent},SYSDATE,SYSDATE,#{fname},#{diaryNO},#{b_ref},#{b_step},#{b_level})
+	</insert>
+	
+	<update id="updateStep">
+		UPDATE DIARYBOARD SET B_STEP = B_STEP + 1 WHERE B_REF = #{b_ref} AND B_STEP > #{b_step}
+	</update>
+	
+	<delete id="deleteByNo">
+		DELETE FROM DIARYBOARD WHERE DIARYNO = #{diaryNO}
+	</delete>
+	
+	<update id="update">
+		UPDATE DIARYBOARD SET DIARYTITLE=#{diaryTitle},DIARYCONTENT=#{diaryContent},FNAME=#{fname},MODIFIEDAT=SYSDATE WHERE DIARYNO = #{diaryNO}
+	</update>
+</mapper>

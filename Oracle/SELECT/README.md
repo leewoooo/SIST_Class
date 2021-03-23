@@ -270,7 +270,16 @@ ORDER BY COLUMN명 (ASC or DESC) , COLUMN명 (ASC or DESC),,,,
 29999     29999
 100001    300
 ```
+
+<br>
+
 ---
+
+<Br>
+
+## 추가 내용
+
+SELECT 문의 순서
 
 
 
